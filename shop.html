@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>Curvemania | Shop</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="shortcut icon" type="image/x-icon" href="images/icon.png"/>
+		<link rel="stylesheet" type="text/css" href="style.css">
+		<script type="text/javascript" src="shop.js"></script>
+		<script type="text/javascript" src="overlays.js"></script>
+	</head>
+	<body ondragstart="return false;" ondrop="return false;">
+		<div class="navbar">
+			<a href="index.html" class="title">🐍</a>
+			<a href="play.html">▶️</a>
+			<a href="podium.html">🏆</a>
+			<a href="shop.html">🛒</a>
+			<a href="customize.html">🎨</a>
+			<a href="settings.html">⚙️</a>
+			<a href="account.html">🧑</a>
+		</div>
+		<div class="head">
+			<p class="header">Shop</p>
+			<p id="currency">100🪙</p>
+		</div>
+		<div id="popup">
+			<p id="message"></p>
+			<span onclick="buySkin()">YES</span><span onclick="hidePopup()">NO</span>
+		</div>
+		<div id="background" onclick="hidePopup()"></div>
+		<div class="game">
+			<div class="row">
+				<div class="box">
+					<div class="box-inner">
+						<div class="box-front">
+							PATTERNS
+						</div>
+						<div class="box-back">
+							<div class="column">
+								<div class="patterns" title="You get another split option to divide your trail" 
+								onclick="popup('Buy a split option for 1000🪙?','pattern-text','0')">
+									<div class="pattern">Split Trail</div>
+									<p class="pattern-text">1000🪙</p>
+								</div>
+								<div class="patterns" title="You get another gap width option to customize the gap between splits on your trail" 
+								onclick="popup('Buy a gap width option for 1000🪙?','pattern-text','1')">
+									<div class="pattern">Gap Width</div>
+									<p class="pattern-text">1000🪙</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="box">
+					<div class="box-inner">
+						<div class="box-front">
+							EXTRAS
+						</div>
+						<div class="box-back">
+							<div class="column">
+								<div class="extras" title="Your trail gets circular shape" 
+								onclick="popup('Buy the circular shape for 2500🪙?','extra-text','0')">
+									<div class="extra">Circular Shape</div>
+									<p class="extra-text">2500🪙</p>
+								</div>
+								<div class="extras" title="You get a shadow color along the trail" 
+								onclick="popup('Buy the shadow color for 2500🪙?','extra-text','1')">
+									<div class="extra">Shadow Color</div>
+									<p class="extra-text">2500🪙</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="box">
+					<div class="box-inner">
+						<div class="box-front">
+							COLORS
+						</div>
+						<div class="box-back">
+							<div class="column">
+								<div class="row">
+									<div class="colors" onclick="popup('Buy the blue color for 200🪙?','color-text','0')">
+										<div class="color" style="background-color: blue;">Blue</div>
+										<p class="color-text">200🪙</p>
+									</div>
+									<div class="colors" onclick="popup('Buy the purple color for 200🪙?','color-text','1')">
+										<div class="color" style="background-color: purple;">Purple</div>
+										<p class="color-text">200🪙</p>
+									</div>
+								</div>
+								<div class="row">
+									<div class="colors" onclick="popup('Buy the green color for 200🪙?','color-text','2')">
+										<div class="color" style="background-color: green;">Green</div>
+										<p class="color-text">200🪙</p>
+									</div>
+									<div class="colors" onclick="popup('Buy the cyan color for 200🪙?','color-text','3')">
+										<div class="color" style="background-color: cyan;">Cyan</div>
+										<p class="color-text">200🪙</p>
+									</div>
+								</div>
+								<div class="row">
+									<div class="colors" onclick="popup('Buy the orange color for 200🪙?','color-text','4')">
+										<div class="color" style="background-color: orange;">Orange</div>
+										<p class="color-text">200🪙</p>
+									</div>
+									<div class="colors" onclick="popup('Buy the yellow color for 200🪙?','color-text','5')">
+										<div class="color" style="background-color: yellow;">Yellow</div>
+										<p class="color-text">200🪙</p>
+									</div>
+								</div>
+								<div class="row">
+									<div class="colors" onclick="popup('Buy the pink color for 200🪙?','color-text','6')">
+										<div class="color" style="background-color: pink;">Pink</div>
+										<p class="color-text">200🪙</p>
+									</div>
+									<div class="colors" onclick="popup('Buy the white color for 200🪙?','color-text','7')">
+										<div class="color" style="background-color: white;">White</div>
+										<p class="color-text">200🪙</p>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="controls">
+				<img src="images/audio.png" id="audio" onclick="playAudio()" title="audio">
+				<img src="images/music.png" id="music" onclick="playMusic()" title="music">
+				<img src="images/full.png" id="full" onclick="fullScreen()" title="fullscreen">
+			</div>
+		</div>
+	</body>
+</html>

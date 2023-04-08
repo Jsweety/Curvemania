@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>Curvemania | Easy Mode</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="shortcut icon" type="image/x-icon" href="images/icon.png"/>
+		<link rel="stylesheet" type="text/css" href="style.css">
+		<script type="text/javascript" src="easy.js"></script>
+		<script type="text/javascript" src="overlays.js"></script>
+	</head>
+	<body ondragstart="return false;" ondrop="return false;">
+		<div class="navbar">
+			<a href="index.html" class="title">🐍</a>
+			<a href="play.html">▶️</a>
+			<a href="podium.html">🏆</a>
+			<a href="shop.html">🛒</a>
+			<a href="customize.html">🎨</a>
+			<a href="settings.html">⚙️</a>
+			<a href="account.html">🧑</a>
+		</div>
+		<div class="head">
+			<p class="header">Easy Mode</p>
+			<p id="currency">1000🪙</p>
+		</div>
+		<div id="level-time">AAAAA</div>
+		<div class="game">
+			<div class="row">
+				<span class="lvl-number" onmouseover="box('block',0)" onmouseout="box('none',0)" onclick="startCanvas(1)">1</span>
+				<span class="lvl-number" onmouseover="box('block',1)" onmouseout="box('none',1)" onclick="startCanvas(2)">2</span>
+				<span class="lvl-number" onmouseover="box('block',2)" onmouseout="box('none',2)" onclick="startCanvas(3)">3</span>
+				<span class="lvl-number" onmouseover="box('block',3)" onmouseout="box('none',3)" onclick="startCanvas(4)">4</span>
+				<span class="lvl-number" onmouseover="box('block',4)" onmouseout="box('none',4)" onclick="startCanvas(5)">5</span>
+			</div>
+			<div class="row">
+				<span class="lvl-number" onmouseover="box('block',5)" onmouseout="box('none',5)" onclick="startCanvas(6)">6</span>
+				<span class="lvl-number" onmouseover="box('block',6)" onmouseout="box('none',6)" onclick="startCanvas(7)">7</span>
+				<span class="lvl-number" onmouseover="box('block',7)" onmouseout="box('none',7)" onclick="startCanvas(8)">8</span>
+				<span class="lvl-number" onmouseover="box('block',8)" onmouseout="box('none',8)" onclick="startCanvas(9)">9</span>
+				<span class="lvl-number" onmouseover="box('block',9)" onmouseout="box('none',9)" onclick="startCanvas(10)">10</span>
+			</div>
+			<div class="row">
+				<span class="lvl-number" onmouseover="box('block',10)" onmouseout="box('none',10)" onclick="startCanvas(11)">11</span>
+				<span class="lvl-number" onmouseover="box('block',11)" onmouseout="box('none',11)" onclick="startCanvas(12)">12</span>
+				<span class="lvl-number" onmouseover="box('block',12)" onmouseout="box('none',12)" onclick="startCanvas(13)">13</span>
+				<span class="lvl-number" onmouseover="box('block',13)" onmouseout="box('none',13)" onclick="startCanvas(14)">14</span>
+				<span class="lvl-number" onmouseover="box('block',14)" onmouseout="box('none',14)" onclick="startCanvas(15)">15</span>
+			</div>
+			<div class="row">
+				<span class="lvl-number" onmouseover="box('block',15)" onmouseout="box('none',15)" onclick="startCanvas(16)">16</span>
+				<span class="lvl-number" onmouseover="box('block',16)" onmouseout="box('none',16)" onclick="startCanvas(17)">17</span>
+				<span class="lvl-number" onmouseover="box('block',17)" onmouseout="box('none',17)" onclick="startCanvas(18)">18</span>
+				<span class="lvl-number" onmouseover="box('block',18)" onmouseout="box('none',18)" onclick="startCanvas(19)">19</span>
+				<span class="lvl-number" onmouseover="box('block',19)" onmouseout="box('none',19)" onclick="startCanvas(20)">20</span>
+			</div>
+			<div class="canvas-content">
+				<canvas style="display: none;" id="canvas" width="900" height="600"></canvas>
+				<p id="current-level"></p>
+				<p id="current-time"></p>
+				<p id="best-time"></p>
+				<p id="canvas-message"></p>
+				<p id="time-message"></p>
+			</div>
+			<div class="controls">
+				<img src="images/audio.png" id="audio" onclick="playAudio()" title="audio">
+				<img src="images/music.png" id="music" onclick="playMusic()" title="music">
+				<img src="images/speedrunno.png" id="speedrun" onclick="speedrunMode()" title="speedrun mode">
+				<img src="images/trailno.png" id="trail" onclick="trailShadow()" title="trail of personal best">
+				<img src="images/full.png" id="full" onclick="fullScreen()" title="fullscreen">
+			</div>
+			<div id="friends">
+				<p id="title" onclick="friends()">Friends</p>
+				<select id="friend-select">
+					<option value="0">Invite</option>
+					<option value="1">Name#1</option>
+					<option value="2">Name#2</option>
+					<option value="3">Name#3</option>
+					<option value="4">Name#4</option>
+					<option value="5">Name#5</option>
+					<option value="6">Name#6</option>
+				</select>
+				<button id="send-button">Send</button>
+			</div>
+		</div>
+	</body>
+</html>

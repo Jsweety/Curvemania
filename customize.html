@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>Curvemania | Customize</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="shortcut icon" type="image/x-icon" href="images/icon.png"/>
+		<link rel="stylesheet" type="text/css" href="style.css">
+		<script type="text/javascript" src="customize.js"></script>
+		<script type="text/javascript" src="overlays.js"></script>
+	</head>
+	<body ondragstart="return false;" ondrop="return false;">
+		<div class="navbar">
+			<a href="index.html" class="title">🐍</a>
+			<a href="play.html">▶️</a>
+			<a href="podium.html">🏆</a>
+			<a href="shop.html">🛒</a>
+			<a href="customize.html">🎨</a>
+			<a href="settings.html">⚙️</a>
+			<a href="account.html">🧑</a>
+		</div>
+		<div class="head">
+			<p class="header">Customize</p>
+			<p id="currency">100🪙</p>
+		</div>
+		<div class="game">
+			<div class="controls">
+				<img src="images/audio.png" id="audio" onclick="playAudio()" title="audio">
+				<img src="images/music.png" id="music" onclick="playMusic()" title="music">
+				<img src="images/full.png" id="full" onclick="fullScreen()" title="fullscreen">
+			</div>
+			<div class="row">
+				<div class="container">
+					<p class="customize-text">Patterns</p>
+					<div class="column">
+						<div class="customize-div">
+							<span class="customize-span">Split</span>
+							<input class="customize-range" type="range" min="0" max="3" value="0" onchange="updatePlayer(0,this.value)">
+						</div>
+						<div class="customize-div">
+							<span class="customize-span">Gap</span>
+							<input class="customize-range" type="range" min="0" max="3" value="0" onchange="updatePlayer(1,this.value)">
+						</div>
+					</div>
+				</div>
+				<div class="container">
+					<p class="customize-text">Extras</p>
+					<div class="column">
+						<div class="customize-div">
+							<span class="customize-span">Circle</span>
+							<label class="switch">
+								<input class="customize-checkbox" type="checkbox" onchange="updatePlayer(2,this.checked ? 1 : 0)">
+								<span class="slider"></span>
+							</label>
+							
+						</div>
+						<div class="customize-div">
+							<span class="customize-span">Shadow</span>
+							<label class="switch">
+								<input class="customize-checkbox" type="checkbox" onchange="updatePlayer(3,this.checked ? 1 : 0)">
+								<span class="slider"></span>
+							</label>
+						</div>
+					</div>
+				</div>
+				<div class="container">
+					<p class="customize-text">Colors</p>
+					<div class="column">
+						<div class="customize-colors">
+							<input class="customize-radio"type="radio"name="color"id="red"value="0"onchange="updatePlayer(4,this.value)"/>
+							<label class="customize-label" style="background-color:red" for="red"></label>
+							<input class="customize-radio"type="radio"name="color"id="blue"value="1"onchange="updatePlayer(4,this.value)"/>
+							<label class="customize-label" style="background-color:blue" for="blue"></label>
+							<input class="customize-radio"type="radio"name="color"id="purple"value="2"onchange="updatePlayer(4,this.value)"/>
+							<label class="customize-label" style="background-color:purple" for="purple"></label>
+						</div>
+						<div class="customize-colors">
+							<input class="customize-radio"type="radio"name="color"id="green"value="3"onchange="updatePlayer(4,this.value)"/>
+							<label class="customize-label" style="background-color:green" for="green"></label>
+							<input class="customize-radio"type="radio"name="color"id="cyan"value="4"onchange="updatePlayer(4,this.value)"/>
+							<label class="customize-label" style="background-color:cyan" for="cyan"></label>
+							<input class="customize-radio"type="radio"name="color"id="orange"value="5"onchange="updatePlayer(4,this.value)"/>
+							<label class="customize-label" style="background-color:orange" for="orange"></label>
+						</div>
+						<div class="customize-colors">
+							<input class="customize-radio"type="radio"name="color"id="yellow"value="6"onchange="updatePlayer(4,this.value)"/>
+							<label class="customize-label" style="background-color:yellow" for="yellow"></label>
+							<input class="customize-radio"type="radio"name="color"id="pink"value="7"onchange="updatePlayer(4,this.value)"/>
+							<label class="customize-label" style="background-color:pink" for="pink"></label>
+							<input class="customize-radio"type="radio"name="color"id="white"value="8"onchange="updatePlayer(4,this.value)"/>
+							<label class="customize-label" style="background-color:white" for="white"></label>
+						</div>
+					</div>
+				</div>
+				<canvas id="small-canvas" width="300" height="300"></canvas>
+			</div>
+		</div>
+	</body>
+</html>

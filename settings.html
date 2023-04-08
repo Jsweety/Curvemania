@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>Curvemania | Settings</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="shortcut icon" type="image/x-icon" href="images/icon.png"/>
+		<link rel="stylesheet" type="text/css" href="style.css">
+		<script type="text/javascript" src="overlays.js"></script>
+	</head>
+	<body ondragstart="return false;" ondrop="return false;">
+		<div class="navbar">
+			<a href="index.html" class="title">🐍</a>
+			<a href="play.html">▶️</a>
+			<a href="podium.html">🏆</a>
+			<a href="shop.html">🛒</a>
+			<a href="customize.html">🎨</a>
+			<a href="settings.html">⚙️</a>
+			<a href="account.html">🧑</a>
+		</div>
+		<div class="head">
+			<p class="header">Settings</p>
+			<p id="currency">1000🪙</p>
+		</div>
+		<div class="game">
+			<div class="settings">
+				<div class="settings-header">
+					<span>Audio:</span>
+					<input class="customize-range" type="range" min="0" max="100" value="50" oninput="volume(this.value,'audio-level')">
+					<span id="audio-level">50%</span>
+					<span>Music:</span>
+					<input class="customize-range" type="range" min="1" max="100" value="50" oninput="volume(this.value,'music-level')">
+					<span id="music-level">50%</span>
+				</div>
+				<div class="settings-body">
+					<p>Controls:</p>
+					<div>
+						<span>Turn left</span><span>←</span>
+						<span>Turn right</span><span>→</span>
+					</div>
+					<div>
+						<span>Next level</span><span>↑</span>
+						<span>Previous level</span><span>↓</span>
+					</div>
+					<div>
+						<span>Mute audio</span><span>A</span>
+						<span>Mute music</span><span>M</span>
+					</div>
+					<div>
+						<span>Speedrun Mode</span><span>S</span>
+						<span>Fullscreen</span><span>F</span>
+					</div>
+					<div>
+						<span>Personal best trail</span><span>T</span>
+					</div>
+				</div>
+			</div>
+			<div class="controls">
+				<img src="images/audio.png" id="audio" onclick="playAudio()" title="audio">
+				<img src="images/music.png" id="music" onclick="playMusic()" title="music">
+				<img src="images/full.png" id="full" onclick="fullScreen()" title="fullscreen">
+			</div>
+		</div>
+	</body>
+</html>
