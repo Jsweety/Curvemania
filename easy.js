@@ -20,6 +20,10 @@ var audioHighscore = new Audio('sound/highscore.wav');
 var audioCollision = new Audio('sound/collision.wav');
 
 window.onload = function() {
+	for(var i=10;i<20;i++) {
+		times = null;
+		trails = null;
+	}
     spans = document.querySelectorAll(".game span");
     for (var i=0;i<maxLvl-1; i++) {
         spans[i].style.backgroundColor = "green";
@@ -47,7 +51,7 @@ function startCanvas(num) {
     ctx.strokeStyle = "white";
     ctx.lineJoin='round'; 
     ctx.lineWidth = 4;
-    ctx.fillStyle = "white";
+    ctx.fillStyle = "black";
     startDrawing(fps);
 }
 function cookies() {
@@ -246,8 +250,19 @@ function drawLevel(lvl) {
         greenCollision = isPointInStroke();
     }
     if(lvl == 11) {
-        ctx.beginPath();ctx.moveTo(2,400);ctx.lineTo(900,400);ctx.moveTo(2,200);ctx.lineTo(900,200);ctx.stroke();
+        ctx.beginPath();ctx.rect(120,270,120,60);ctx.rect(300,270,120,60);
+        ctx.moveTo(480,330);ctx.lineTo(560,280);ctx.lineTo(640,330);ctx.lineTo(640,270);ctx.lineTo(560,220);ctx.lineTo(480,270);
+        ctx.moveTo(680,330);ctx.lineTo(760,380);ctx.lineTo(840,330);ctx.lineTo(840,270);ctx.lineTo(760,320);ctx.lineTo(680,270);
+        ctx.fill();
+        ctx.beginPath();ctx.moveTo(2,330);ctx.lineTo(480,330);ctx.lineTo(560,280);ctx.lineTo(640,330);ctx.lineTo(680,330);
+		ctx.lineTo(760,380);ctx.lineTo(840,330);ctx.lineTo(900,330);
+		ctx.moveTo(2,270);ctx.lineTo(480,270);ctx.lineTo(560,220);ctx.lineTo(640,270);ctx.lineTo(680,270);
+        ctx.lineTo(760,320);ctx.lineTo(840,270);ctx.lineTo(900,270);
+        ctx.moveTo(335,270);ctx.lineTo(335,295);ctx.moveTo(385,330);ctx.lineTo(385,305);ctx.stroke();
         lvlCollision = isPointInStroke();
+        ctx.beginPath();ctx.moveTo(120,272);ctx.lineTo(120,328);ctx.moveTo(240,272);ctx.lineTo(240,328);
+        ctx.moveTo(300,272);ctx.lineTo(300,328);ctx.moveTo(420,272);ctx.lineTo(420,328);ctx.moveTo(480,272);ctx.lineTo(480,328);
+        ctx.moveTo(640,272);ctx.lineTo(640,328);ctx.moveTo(680,272);ctx.lineTo(680,328);ctx.moveTo(840,272);ctx.lineTo(840,328);stroke("red");
         ctx.beginPath();ctx.moveTo(898,203);ctx.lineTo(898,397);ctx.closePath();stroke("lime");
         greenCollision = isPointInStroke();
     }
