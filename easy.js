@@ -20,10 +20,6 @@ var audioHighscore = new Audio('sound/highscore.wav');
 var audioCollision = new Audio('sound/collision.wav');
 
 window.onload = function() {
-	for(var i=10;i<20;i++) {
-		times = null;
-		trails = null;
-	}
     spans = document.querySelectorAll(".game span");
     for (var i=0;i<maxLvl-1; i++) {
         spans[i].style.backgroundColor = "green";
@@ -139,60 +135,73 @@ function drawPbTrail() {
 }
 function drawLevel(lvl) {
     if(lvl == 1) {
-        ctx.beginPath();ctx.moveTo(0,400);ctx.lineTo(900,400);ctx.moveTo(0,200);ctx.lineTo(900,200);ctx.stroke();
+        ctx.beginPath();
+        ctx.moveTo(0,400);ctx.lineTo(900,400);ctx.moveTo(0,200);ctx.lineTo(900,200);
+        ctx.stroke();
         lvlCollision = isPointInStroke();
         ctx.beginPath();ctx.moveTo(898,203);ctx.lineTo(898,397);ctx.closePath();stroke("lime");
         greenCollision = isPointInStroke();
     }
     if(lvl == 2) {
-        ctx.beginPath();ctx.moveTo(0,200);ctx.lineTo(900,200);ctx.moveTo(0,400);ctx.lineTo(900,400);
+        ctx.beginPath();
+        ctx.moveTo(0,200);ctx.lineTo(900,200);ctx.moveTo(0,400);ctx.lineTo(900,400);
         ctx.moveTo(150,200);ctx.lineTo(150,325);ctx.moveTo(300,400);ctx.lineTo(300,275);
         ctx.moveTo(450,200);ctx.lineTo(450,325);ctx.moveTo(600,400);ctx.lineTo(600,275);
-        ctx.moveTo(750,200);ctx.lineTo(750,325);ctx.stroke();
+        ctx.moveTo(750,200);ctx.lineTo(750,325);
+        ctx.stroke();
         lvlCollision = isPointInStroke();
         ctx.beginPath();ctx.moveTo(898,203);ctx.lineTo(898,397);ctx.closePath();stroke("lime");
         greenCollision = isPointInStroke();
     }
     if(lvl == 3) {
-        ctx.beginPath();ctx.moveTo(0,200);ctx.lineTo(900,265);ctx.moveTo(0,400);ctx.lineTo(900,335);ctx.rect(425,275,50,50);ctx.stroke();
+        ctx.beginPath();
+        ctx.moveTo(0,200);ctx.lineTo(900,265);ctx.moveTo(0,400);ctx.lineTo(900,335);ctx.rect(425,275,50,50);
+        ctx.stroke();
         lvlCollision = isPointInStroke();
         ctx.beginPath();ctx.moveTo(898,268);ctx.lineTo(898,332);ctx.closePath();stroke("lime");
         greenCollision = isPointInStroke();
     }
     if(lvl == 4) {
-        ctx.beginPath();ctx.moveTo(0,265);ctx.lineTo(30,265);ctx.lineTo(170,150);
+        ctx.beginPath();
+        ctx.moveTo(0,265);ctx.lineTo(30,265);ctx.lineTo(170,150);
         ctx.lineTo(450,380);ctx.lineTo(730,150);ctx.lineTo(870,265);ctx.lineTo(900,265);
         ctx.moveTo(0,335);ctx.lineTo(30,335);ctx.lineTo(170,220);ctx.lineTo(450,450);
-        ctx.lineTo(730,220);ctx.lineTo(870,335);ctx.lineTo(900,335);ctx.stroke();
+        ctx.lineTo(730,220);ctx.lineTo(870,335);ctx.lineTo(900,335);
+        ctx.stroke();
         lvlCollision = isPointInStroke();
         ctx.beginPath();ctx.moveTo(898,268);ctx.lineTo(898,332);ctx.closePath();stroke("lime");
         greenCollision = isPointInStroke();
     }
     if(lvl == 5) {
-        ctx.beginPath();ctx.moveTo(0,265);ctx.lineTo(50,265);ctx.lineTo(205,0);ctx.lineTo(245,0);ctx.lineTo(400,265);
+        ctx.beginPath();
+        ctx.moveTo(0,265);ctx.lineTo(50,265);ctx.lineTo(205,0);ctx.lineTo(245,0);ctx.lineTo(400,265);
         ctx.lineTo(500,265);ctx.lineTo(655,0);ctx.lineTo(695,0);ctx.lineTo(850,265);ctx.lineTo(900,265);
         ctx.moveTo(0,335);ctx.lineTo(50,335);ctx.lineTo(205,598);ctx.lineTo(245,598);ctx.lineTo(400,335);
         ctx.lineTo(500,335);ctx.lineTo(655,598);ctx.lineTo(695,598);ctx.lineTo(850,335);ctx.lineTo(900,335);
         ctx.moveTo(100,300);ctx.lineTo(225,80);ctx.lineTo(350,300);ctx.lineTo(225,520);ctx.closePath();
-        ctx.moveTo(550,300);ctx.lineTo(675,80);ctx.lineTo(800,300);ctx.lineTo(675,520);ctx.closePath();ctx.stroke();
+        ctx.moveTo(550,300);ctx.lineTo(675,80);ctx.lineTo(800,300);ctx.lineTo(675,520);ctx.closePath();
+        ctx.stroke();
         lvlCollision = isPointInStroke();
         ctx.beginPath();ctx.moveTo(898,268);ctx.lineTo(898,332);ctx.closePath();stroke("lime");
         greenCollision = isPointInStroke();
     }
     if(lvl == 6) {
-        ctx.beginPath();ctx.moveTo(0,200);ctx.lineTo(40,240);ctx.lineTo(120,160);ctx.lineTo(200,160);ctx.lineTo(300,260);
+        ctx.beginPath();
+        ctx.moveTo(0,200);ctx.lineTo(40,240);ctx.lineTo(120,160);ctx.lineTo(200,160);ctx.lineTo(300,260);
         ctx.lineTo(510,260);ctx.moveTo(0,400);ctx.lineTo(40,360);ctx.lineTo(120,440);ctx.lineTo(200,440);ctx.lineTo(300,340);
         ctx.lineTo(510,340);ctx.moveTo(75,275);ctx.lineTo(100,300);ctx.lineTo(75,325);ctx.lineTo(120,370);ctx.lineTo(270,300);
         ctx.lineTo(120,230);ctx.closePath();ctx.moveTo(450,260);ctx.lineTo(450,100);ctx.lineTo(740,100);ctx.lineTo(740,180);
         ctx.lineTo(820,180);ctx.lineTo(820,260);ctx.lineTo(900,260);ctx.moveTo(450,340);ctx.lineTo(450,500);ctx.lineTo(740,500);
         ctx.lineTo(740,420);ctx.lineTo(820,420);ctx.lineTo(820,340);ctx.lineTo(900,340);ctx.moveTo(660,180);ctx.lineTo(520,180);
-        ctx.lineTo(580,180);ctx.lineTo(580,420);ctx.lineTo(520,420);ctx.lineTo(660,420);ctx.stroke();
+        ctx.lineTo(580,180);ctx.lineTo(580,420);ctx.lineTo(520,420);ctx.lineTo(660,420);
+        ctx.stroke();
         lvlCollision = isPointInStroke();
         ctx.beginPath();ctx.moveTo(898,264);ctx.lineTo(898,336);ctx.closePath();stroke("lime");
         greenCollision = isPointInStroke();
     }
     if(lvl == 7) {
-        ctx.beginPath();ctx.moveTo(0,270);ctx.lineTo(65,270);ctx.lineTo(135,200);ctx.arcTo(170,165,205,200,50);ctx.lineTo(275,270);
+        ctx.beginPath();
+        ctx.moveTo(0,270);ctx.lineTo(65,270);ctx.lineTo(135,200);ctx.arcTo(170,165,205,200,50);ctx.lineTo(275,270);
         ctx.arcTo(310,305,345,270,50);ctx.lineTo(415,200);ctx.arcTo(450,165,485,200,50);ctx.lineTo(555,270);ctx.arcTo(590,305,625,270,50);
         ctx.lineTo(695,200);ctx.arcTo(730,165,765,200,50);ctx.lineTo(835,270);ctx.lineTo(900,270);ctx.moveTo(0,330);ctx.lineTo(65,330);
         ctx.lineTo(135,260);ctx.arcTo(170,225,205,260,50);ctx.lineTo(275,330);ctx.arcTo(310,365,345,330,50);ctx.lineTo(415,260);
@@ -204,7 +213,8 @@ function drawLevel(lvl) {
         greenCollision = isPointInStroke();
     }
     if(lvl == 8) {
-        ctx.beginPath();ctx.moveTo(167,233);ctx.lineTo(200,200);ctx.moveTo(167,366);ctx.lineTo(200,400);ctx.moveTo(133,267);
+        ctx.beginPath();
+        ctx.moveTo(167,233);ctx.lineTo(200,200);ctx.moveTo(167,366);ctx.lineTo(200,400);ctx.moveTo(133,267);
         ctx.lineTo(100,300);ctx.moveTo(133,333);ctx.lineTo(100,300);ctx.moveTo(33,233);ctx.lineTo(0,200);ctx.lineTo(200,200);
         ctx.lineTo(200,400);ctx.lineTo(125,400);ctx.moveTo(67,267);ctx.lineTo(100,300);ctx.lineTo(0,400);ctx.lineTo(75,400);
         ctx.lineTo(75,460);ctx.lineTo(260,460);ctx.lineTo(260,140);ctx.lineTo(520,400);ctx.lineTo(640,280);ctx.lineTo(560,200);
@@ -219,7 +229,8 @@ function drawLevel(lvl) {
         greenCollision = isPointInStroke();
     }
     if(lvl == 9) {
-        ctx.beginPath();ctx.moveTo(150,430);ctx.lineTo(150,540);ctx.moveTo(250,490);ctx.lineTo(250,600);ctx.rect(55,500,40,40);
+        ctx.beginPath();
+        ctx.moveTo(150,430);ctx.lineTo(150,540);ctx.moveTo(250,490);ctx.lineTo(250,600);ctx.rect(55,500,40,40);
         ctx.moveTo(255,230);ctx.lineTo(150,300);ctx.lineTo(255,370);ctx.closePath();ctx.moveTo(0,270);
         ctx.lineTo(100,270);ctx.lineTo(250,170);ctx.lineTo(340,170);ctx.lineTo(340,250);ctx.lineTo(310,250);ctx.lineTo(310,350);
         ctx.lineTo(340,350);ctx.lineTo(340,430);ctx.lineTo(50,430);ctx.lineTo(50,330);ctx.lineTo(100,330);ctx.lineTo(340,490);
@@ -250,29 +261,46 @@ function drawLevel(lvl) {
         greenCollision = isPointInStroke();
     }
     if(lvl == 11) {
+    	ctx.beginPath();ctx.moveTo(809,366);ctx.lineTo(771,404);ctx.lineTo(821,454);ctx.lineTo(859,416);ctx.closePath();ctx.fill();
+        ctx.beginPath();
+        ctx.moveTo(2,325);ctx.lineTo(60,325);ctx.lineTo(60,275);ctx.lineTo(325,275);ctx.lineTo(425,175);ctx.lineTo(425,70);
+        ctx.lineTo(170,70);ctx.lineTo(170,185);ctx.lineTo(240,185);ctx.lineTo(290,135);ctx.lineTo(290,185);ctx.lineTo(140,185);
+        ctx.lineTo(100,145);ctx.lineTo(70,145);ctx.lineTo(40,115);ctx.bezierCurveTo(40,80,60,70,85,70);ctx.lineTo(170,70);
+        ctx.moveTo(2,225);ctx.lineTo(295,225);ctx.lineTo(375,145);ctx.lineTo(375,100);ctx.lineTo(220,100);ctx.lineTo(220,150);
+        ctx.lineTo(270,100);ctx.moveTo(40,185);ctx.lineTo(100,185);ctx.lineTo(80,165);ctx.lineTo(40,165);ctx.lineTo(40,185);
+        ctx.moveTo(100,35);ctx.lineTo(375,35);ctx.moveTo(187,52);ctx.lineTo(287,52);
+        ctx.moveTo(475,2);ctx.lineTo(475,175);ctx.lineTo(575,275);ctx.lineTo(900,275);
+        ctx.moveTo(325,325);ctx.lineTo(425,425);ctx.bezierCurveTo(325,425,325,425,325,325);
+        ctx.moveTo(295,275);ctx.lineTo(295,455);ctx.lineTo(475,455);ctx.lineTo(475,375);ctx.lineTo(525,375);ctx.lineTo(525,325);
+        ctx.lineTo(800,600);ctx.moveTo(375,275);ctx.lineTo(375,225);ctx.lineTo(425,225);ctx.moveTo(375,325);ctx.lineTo(375,375);
+        ctx.lineTo(425,375);ctx.lineTo(525,275);ctx.lineTo(525,225);ctx.lineTo(475,225);ctx.lineTo(375,325);
+        ctx.moveTo(650,275);ctx.lineTo(620,305);ctx.moveTo(600,325);ctx.lineTo(563,362);
+        ctx.moveTo(700,275);ctx.lineTo(630,345);ctx.moveTo(610,365);ctx.lineTo(590,385);
+        ctx.moveTo(750,275);ctx.lineTo(635,390);
+        ctx.moveTo(800,275);ctx.lineTo(670,405);ctx.moveTo(650,425);ctx.lineTo(637,438);
+        ctx.moveTo(850,275);ctx.lineTo(750,375);ctx.moveTo(730,395);ctx.lineTo(662,463);
+        ctx.moveTo(900,275);ctx.lineTo(810,365);ctx.lineTo(900,455);ctx.moveTo(688,487);ctx.lineTo(770,405);ctx.lineTo(900,535);
+        ctx.stroke();
+        lvlCollision = isPointInStroke();
+        ctx.beginPath();ctx.moveTo(809,366);ctx.lineTo(771,404);ctx.moveTo(859,416);ctx.lineTo(821,454);stroke("red");
+        ctx.beginPath();ctx.moveTo(898,455);ctx.lineTo(898,535);stroke("lime");
+        greenCollision = isPointInStroke();
+    }
+    if(lvl == 12) {
         ctx.beginPath();ctx.rect(120,270,120,60);ctx.rect(300,270,120,60);
-        ctx.moveTo(480,330);ctx.lineTo(560,280);ctx.lineTo(640,330);ctx.lineTo(640,270);ctx.lineTo(560,220);ctx.lineTo(480,270);
-        ctx.moveTo(680,330);ctx.lineTo(760,380);ctx.lineTo(840,330);ctx.lineTo(840,270);ctx.lineTo(760,320);ctx.lineTo(680,270);
+        ctx.moveTo(480,330);ctx.lineTo(560,290);ctx.lineTo(640,330);ctx.lineTo(640,270);ctx.lineTo(560,230);ctx.lineTo(480,270);
+        ctx.moveTo(680,330);ctx.lineTo(760,370);ctx.lineTo(840,330);ctx.lineTo(840,270);ctx.lineTo(760,310);ctx.lineTo(680,270);
         ctx.fill();
-        ctx.beginPath();ctx.moveTo(2,330);ctx.lineTo(480,330);ctx.lineTo(560,280);ctx.lineTo(640,330);ctx.lineTo(680,330);
-		ctx.lineTo(760,380);ctx.lineTo(840,330);ctx.lineTo(900,330);
-		ctx.moveTo(2,270);ctx.lineTo(480,270);ctx.lineTo(560,220);ctx.lineTo(640,270);ctx.lineTo(680,270);
-        ctx.lineTo(760,320);ctx.lineTo(840,270);ctx.lineTo(900,270);
+        ctx.beginPath();ctx.moveTo(2,330);ctx.lineTo(480,330);ctx.lineTo(560,290);ctx.lineTo(640,330);ctx.lineTo(680,330);
+		ctx.lineTo(760,370);ctx.lineTo(840,330);ctx.lineTo(900,330);
+		ctx.moveTo(2,270);ctx.lineTo(480,270);ctx.lineTo(560,230);ctx.lineTo(640,270);ctx.lineTo(680,270);
+        ctx.lineTo(760,310);ctx.lineTo(840,270);ctx.lineTo(900,270);
         ctx.moveTo(335,270);ctx.lineTo(335,295);ctx.moveTo(385,330);ctx.lineTo(385,305);ctx.stroke();
         lvlCollision = isPointInStroke();
         ctx.beginPath();ctx.moveTo(120,272);ctx.lineTo(120,328);ctx.moveTo(240,272);ctx.lineTo(240,328);
         ctx.moveTo(300,272);ctx.lineTo(300,328);ctx.moveTo(420,272);ctx.lineTo(420,328);ctx.moveTo(480,272);ctx.lineTo(480,328);
         ctx.moveTo(640,272);ctx.lineTo(640,328);ctx.moveTo(680,272);ctx.lineTo(680,328);ctx.moveTo(840,272);ctx.lineTo(840,328);stroke("red");
-        ctx.beginPath();ctx.moveTo(898,203);ctx.lineTo(898,397);ctx.closePath();stroke("lime");
-        greenCollision = isPointInStroke();
-    }
-    if(lvl == 12) {
-        ctx.beginPath();ctx.moveTo(  0,200);ctx.lineTo(900,200);ctx.moveTo(  0,400);ctx.lineTo(900,400);
-        ctx.moveTo(150,200);ctx.lineTo(150,325);ctx.moveTo(300,400);ctx.lineTo(300,275);
-        ctx.moveTo(450,200);ctx.lineTo(450,325);ctx.moveTo(600,400);ctx.lineTo(600,275);
-        ctx.moveTo(750,200);ctx.lineTo(750,325);ctx.stroke();
-        lvlCollision = isPointInStroke();
-        ctx.beginPath();ctx.moveTo(898,203);ctx.lineTo(898,397);ctx.closePath();stroke("lime");
+        ctx.beginPath();ctx.moveTo(898,273);ctx.lineTo(898,327);ctx.closePath();stroke("lime");
         greenCollision = isPointInStroke();
     }
     if(lvl == 13) {
