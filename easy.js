@@ -328,29 +328,6 @@ function drawLevel(lvl) {
         greenCollision = isPointInStroke();
     }
     if(lvl == 14) {
-    	ctx.beginPath();ctx.rect(360,180,40,70);ctx.rect(500,350,40,70);ctx.fill();
-        ctx.beginPath();
-        ctx.moveTo(60,300);ctx.bezierCurveTo(60,260,110,260,110,300);ctx.bezierCurveTo(110,340,60,340,60,300);
-        ctx.moveTo(110,300);ctx.lineTo(123,270);ctx.lineTo(155,300);ctx.lineTo(123,330);ctx.lineTo(110,300);
-        ctx.moveTo(2,260);ctx.lineTo(150,210);ctx.lineTo(137,240);ctx.lineTo(180,280);ctx.lineTo(250,280);ctx.lineTo(250,180);
-        ctx.bezierCurveTo(250,85,400,85,400,180);ctx.lineTo(400,250);
-        ctx.moveTo(2,340);ctx.lineTo(150,390);ctx.lineTo(137,360);ctx.lineTo(180,320);ctx.lineTo(290,320);ctx.lineTo(290,180);
-        ctx.bezierCurveTo(290,130,360,130,360,180);ctx.lineTo(360,250);
-        ctx.moveTo(840,300);ctx.bezierCurveTo(840,260,790,260,790,300);ctx.bezierCurveTo(790,340,840,340,840,300);
-        ctx.moveTo(790,300);ctx.lineTo(777,270);ctx.lineTo(745,300);ctx.lineTo(777,330);ctx.lineTo(790,300);
-        ctx.moveTo(898,340);ctx.lineTo(750,390);ctx.lineTo(763,360);ctx.lineTo(720,320);ctx.lineTo(650,320);ctx.lineTo(650,420);
-        ctx.bezierCurveTo(650,515,500,515,500,420);ctx.lineTo(500,350);
-        ctx.moveTo(898,260);ctx.lineTo(750,210);ctx.lineTo(763,240);ctx.lineTo(720,280);ctx.lineTo(610,280);ctx.lineTo(610,420);
-        ctx.bezierCurveTo(610,470,540,470,540,420);ctx.lineTo(540,350);
-        ctx.stroke();
-        lvlCollision = isPointInStroke();
-        ctx.beginPath();ctx.moveTo(362,180);ctx.lineTo(398,180);ctx.moveTo(502,420);ctx.lineTo(538,420);stroke("red");
-        ctx.beginPath();ctx.moveTo(362,248);ctx.lineTo(398,248);stroke("darkviolet");teleporter(140,110);
-        ctx.beginPath();ctx.moveTo(502,352);ctx.lineTo(538,352);stroke("darkviolet");
-        ctx.beginPath();ctx.moveTo(898,262);ctx.lineTo(898,338);ctx.closePath();stroke("lime");
-        greenCollision = isPointInStroke();
-    }
-    if(lvl == 15) {
         ctx.beginPath();
         ctx.moveTo(2,280);ctx.quadraticCurveTo(60,280,60,220);ctx.moveTo(2,320);ctx.quadraticCurveTo(100,320,100,220);
         ctx.moveTo(700,580);ctx.quadraticCurveTo(700,520,640,520);ctx.moveTo(740,580);ctx.quadraticCurveTo(740,480,640,480);
@@ -381,6 +358,29 @@ function drawLevel(lvl) {
         ctx.beginPath();ctx.moveTo(202,52);ctx.lineTo(238,52);stroke("darkviolet");teleporter(600,324);
         ctx.beginPath();ctx.moveTo(802,380);ctx.lineTo(838,380);stroke("darkviolet");
         ctx.beginPath();ctx.moveTo(898,282);ctx.lineTo(898,318);ctx.closePath();stroke("lime");
+        greenCollision = isPointInStroke();
+    }
+    if(lvl == 15) {
+    	ctx.beginPath();ctx.rect(360,180,40,70);ctx.rect(500,350,40,70);ctx.fill();
+        ctx.beginPath();
+        ctx.moveTo(60,300);ctx.bezierCurveTo(60,260,110,260,110,300);ctx.bezierCurveTo(110,340,60,340,60,300);
+        ctx.moveTo(110,300);ctx.lineTo(123,270);ctx.lineTo(155,300);ctx.lineTo(123,330);ctx.lineTo(110,300);
+        ctx.moveTo(2,260);ctx.lineTo(150,210);ctx.lineTo(137,240);ctx.lineTo(180,280);ctx.lineTo(250,280);ctx.lineTo(250,180);
+        ctx.bezierCurveTo(250,85,400,85,400,180);ctx.lineTo(400,250);
+        ctx.moveTo(2,340);ctx.lineTo(150,390);ctx.lineTo(137,360);ctx.lineTo(180,320);ctx.lineTo(290,320);ctx.lineTo(290,180);
+        ctx.bezierCurveTo(290,130,360,130,360,180);ctx.lineTo(360,250);
+        ctx.moveTo(840,300);ctx.bezierCurveTo(840,260,790,260,790,300);ctx.bezierCurveTo(790,340,840,340,840,300);
+        ctx.moveTo(790,300);ctx.lineTo(777,270);ctx.lineTo(745,300);ctx.lineTo(777,330);ctx.lineTo(790,300);
+        ctx.moveTo(898,340);ctx.lineTo(750,390);ctx.lineTo(763,360);ctx.lineTo(720,320);ctx.lineTo(650,320);ctx.lineTo(650,420);
+        ctx.bezierCurveTo(650,515,500,515,500,420);ctx.lineTo(500,350);
+        ctx.moveTo(898,260);ctx.lineTo(750,210);ctx.lineTo(763,240);ctx.lineTo(720,280);ctx.lineTo(610,280);ctx.lineTo(610,420);
+        ctx.bezierCurveTo(610,470,540,470,540,420);ctx.lineTo(540,350);
+        ctx.stroke();
+        lvlCollision = isPointInStroke();
+        ctx.beginPath();ctx.moveTo(362,180);ctx.lineTo(398,180);ctx.moveTo(502,420);ctx.lineTo(538,420);stroke("red");
+        ctx.beginPath();ctx.moveTo(362,248);ctx.lineTo(398,248);stroke("darkviolet");teleporter(140,110);
+        ctx.beginPath();ctx.moveTo(502,352);ctx.lineTo(538,352);stroke("darkviolet");
+        ctx.beginPath();ctx.moveTo(898,262);ctx.lineTo(898,338);ctx.closePath();stroke("lime");
         greenCollision = isPointInStroke();
     }
     if(lvl == 16) {
