@@ -412,12 +412,19 @@ function drawLevel(lvl) {
         greenCollision = isPointInStroke();
     }
     if(lvl == 17) {
-        ctx.beginPath();ctx.moveTo(  0,200);ctx.lineTo(900,200);ctx.moveTo(  0,400);ctx.lineTo(900,400);
-        ctx.moveTo(150,200);ctx.lineTo(150,325);ctx.moveTo(300,400);ctx.lineTo(300,275);
-        ctx.moveTo(450,200);ctx.lineTo(450,325);ctx.moveTo(600,400);ctx.lineTo(600,275);
-        ctx.moveTo(750,200);ctx.lineTo(750,325);ctx.stroke();
+        ctx.beginPath();
+        ctx.moveTo(2,270);ctx.lineTo(20,270);ctx.lineTo(145,70);ctx.lineTo(265,70);ctx.lineTo(410,302);ctx.bezierCurveTo(410,352,490,352,490,302);
+        ctx.bezierCurveTo(490,252,410,252,410,302);ctx.moveTo(490,302);ctx.lineTo(635,70);ctx.lineTo(755,70);ctx.lineTo(880,270);ctx.lineTo(900,270);
+        ctx.moveTo(2,330);ctx.lineTo(40,330);ctx.lineTo(165,130);ctx.bezierCurveTo(165,80,245,80,245,130);ctx.bezierCurveTo(245,180,165,180,165,130);
+        ctx.moveTo(245,130);ctx.lineTo(390,362);ctx.lineTo(510,362);ctx.lineTo(655,130);ctx.bezierCurveTo(655,80,735,80,735,130);
+        ctx.bezierCurveTo(735,180,655,180,655,130);ctx.moveTo(735,130);ctx.lineTo(860,330);ctx.lineTo(900,330);
+        ctx.moveTo(285,150);ctx.lineTo(365,278);ctx.moveTo(655,130);ctx.lineTo(630,130);ctx.moveTo(735,130);ctx.lineTo(760,130);ctx.moveTo(145,70);
+        ctx.lineTo(160,85);ctx.moveTo(265,70);ctx.lineTo(250,85);ctx.moveTo(410,302);ctx.lineTo(410,337);ctx.moveTo(490,302);ctx.lineTo(490,337);
+        ctx.moveTo(75,273);ctx.lineTo(60,273);ctx.lineTo(140,145);ctx.lineTo(155,145);ctx.moveTo(552,250);ctx.lineTo(579,250);ctx.moveTo(552,200);
+        ctx.lineTo(580,200);ctx.moveTo(800,143);ctx.lineTo(800,193);ctx.moveTo(836,242);ctx.lineTo(836,292);
+        ctx.stroke();
         lvlCollision = isPointInStroke();
-        ctx.beginPath();ctx.moveTo(898,203);ctx.lineTo(898,397);ctx.closePath();stroke("lime");
+        ctx.beginPath();ctx.moveTo(898,272);ctx.lineTo(898,328);ctx.closePath();stroke("lime");
         greenCollision = isPointInStroke();
     }
     if(lvl == 18) {
