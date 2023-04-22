@@ -428,34 +428,73 @@ function drawLevel(lvl) {
         greenCollision = isPointInStroke();
     }
     if(lvl == 18) {
-        ctx.beginPath();ctx.moveTo(  0,200);ctx.lineTo(900,265);ctx.moveTo(  0,400);ctx.lineTo(900,335);ctx.stroke();
+        ctx.beginPath();
+        ctx.moveTo(820,270);ctx.lineTo(900,270);ctx.moveTo(820,330);ctx.lineTo(900,330);ctx.moveTo(80,330);ctx.lineTo(130,330);
+        ctx.moveTo(2,270);ctx.lineTo(80,270);ctx.bezierCurveTo(80,50,375,50,375,230);ctx.lineTo(525,230);ctx.bezierCurveTo(525,50,820,50,820,270);
+        ctx.lineTo(820,330);ctx.bezierCurveTo(820,550,525,550,525,370);ctx.lineTo(375,370);ctx.bezierCurveTo(375,550,80,550,80,330);ctx.lineTo(2,330);
+        ctx.moveTo(130,300);ctx.bezierCurveTo(130,100,325,100,325,275);ctx.lineTo(575,275);ctx.bezierCurveTo(575,100,770,100,770,270);ctx.moveTo(770,330);
+        ctx.bezierCurveTo(770,500,575,500,575,325);ctx.lineTo(325,325);ctx.bezierCurveTo(325,500,130,500,130,298);ctx.moveTo(180,300);
+        ctx.bezierCurveTo(180,170,275,170,275,300);ctx.bezierCurveTo(275,430,180,430,180,300);ctx.moveTo(720,300);ctx.bezierCurveTo(720,170,625,170,625,300);
+        ctx.bezierCurveTo(625,430,720,430,720,300);
+        ctx.stroke();
         lvlCollision = isPointInStroke();
+        ctx.beginPath();ctx.moveTo(95,400);ctx.lineTo(142,380);stroke("darkviolet");teleporter(50,-29);
+        ctx.beginPath();ctx.moveTo(146,378);ctx.lineTo(187,361);stroke("darkviolet");
+        ctx.beginPath();ctx.moveTo(770,272);ctx.lineTo(770,328);stroke("darkviolet");if(player.x>770) teleporter(82,0); else teleporter(98,0);
+        ctx.beginPath();ctx.moveTo(860,272);ctx.lineTo(860,328);stroke("darkviolet");
         ctx.beginPath();ctx.moveTo(898,268);ctx.lineTo(898,332);ctx.closePath();stroke("lime");
         greenCollision = isPointInStroke();
     }
     if(lvl == 19) {
-        ctx.beginPath();ctx.moveTo(  0,265);ctx.lineTo( 30,265);ctx.lineTo(170,150);
-        ctx.lineTo(450,380);ctx.lineTo(730,150);ctx.lineTo(870,265);ctx.lineTo(900,265);
-        ctx.moveTo(  0,335);ctx.lineTo( 30,335);ctx.lineTo(170,220);ctx.lineTo(450,450);
-        ctx.lineTo(730,220);ctx.lineTo(870,335);ctx.lineTo(900,335);ctx.stroke();
+    	ctx.beginPath();ctx.moveTo(70,250);ctx.lineTo(120,300);ctx.lineTo(70,350);ctx.lineTo(100,400);ctx.lineTo(150,350);ctx.lineTo(150,250);
+    	ctx.lineTo(100,200);ctx.closePath();ctx.fill();
+        ctx.beginPath();
+        ctx.moveTo(70,250);ctx.lineTo(120,300);ctx.lineTo(70,350);ctx.moveTo(180,300);ctx.lineTo(280,400);ctx.lineTo(350,300);ctx.lineTo(280,200);
+        ctx.lineTo(180,300);ctx.moveTo(430,300);ctx.lineTo(500,180);ctx.lineTo(570,300);ctx.lineTo(500,420);ctx.lineTo(430,300);
+        ctx.moveTo(2,200);ctx.lineTo(100,200);ctx.lineTo(150,250);ctx.lineTo(280,120);ctx.lineTo(320,120);ctx.lineTo(390,250);ctx.lineTo(460,120);
+        ctx.lineTo(570,120);ctx.lineTo(570,190);ctx.lineTo(620,270);ctx.lineTo(670,270);ctx.lineTo(700,320);ctx.lineTo(730,270);ctx.lineTo(770,270);
+        ctx.lineTo(800,320);ctx.lineTo(830,270);ctx.lineTo(870,270);ctx.lineTo(900,320);
+        ctx.moveTo(2,400);ctx.lineTo(100,400);ctx.lineTo(150,350);ctx.lineTo(280,480);ctx.lineTo(320,480);ctx.lineTo(390,350);ctx.lineTo(460,480);
+        ctx.lineTo(570,480);ctx.lineTo(570,410);ctx.lineTo(620,330);ctx.lineTo(650,330);ctx.lineTo(680,380);ctx.lineTo(720,380);ctx.lineTo(750,330);
+        ctx.lineTo(780,380);ctx.lineTo(820,380);ctx.lineTo(850,330);ctx.lineTo(880,380);ctx.lineTo(900,380);
+        ctx.stroke();
         lvlCollision = isPointInStroke();
-        ctx.beginPath();ctx.moveTo(898,268);ctx.lineTo(898,332);ctx.closePath();stroke("lime");
+        ctx.beginPath();ctx.moveTo(70,249);ctx.lineTo(100,203);ctx.moveTo(70,351);ctx.lineTo(100,397);ctx.moveTo(150,250);ctx.lineTo(150,350);stroke("red");
+        ctx.beginPath();ctx.moveTo(898,318);ctx.lineTo(898,377);ctx.closePath();stroke("lime");
         greenCollision = isPointInStroke();
     }
     if(lvl == 20) {
-        ctx.beginPath();ctx.moveTo(  0,265);ctx.lineTo(50,265);ctx.lineTo(205,0);ctx.lineTo(245,0);ctx.lineTo(400,265);
-        ctx.lineTo(500,265);ctx.lineTo(655,0);ctx.lineTo(695,0);ctx.lineTo(850,265);ctx.lineTo(900,265);
-        ctx.moveTo(  0,335);ctx.lineTo(50,335);ctx.lineTo(205,596);ctx.lineTo(245,596);ctx.lineTo(400,335);
-        ctx.lineTo(500,335);ctx.lineTo(655,596);ctx.lineTo(695,596);ctx.lineTo(850,335);ctx.lineTo(900,335);
-        ctx.moveTo(100,300);ctx.lineTo(225,80);ctx.lineTo(350,300);ctx.lineTo(225,520);ctx.closePath();
-        ctx.moveTo(550,300);ctx.lineTo(675,80);ctx.lineTo(800,300);ctx.lineTo(675,520);ctx.closePath();ctx.stroke();
+        ctx.beginPath();
+        ctx.moveTo(100,2);ctx.lineTo(100,50);ctx.lineTo(50,50);ctx.moveTo(2,100);ctx.lineTo(150,100);ctx.lineTo(150,50);ctx.lineTo(200,50);
+        ctx.lineTo(200,150);ctx.lineTo(100,150);ctx.moveTo(150,150);ctx.lineTo(150,200);ctx.lineTo(200,200);ctx.moveTo(50,150);ctx.lineTo(50,200);
+        ctx.lineTo(100,200);ctx.lineTo(100,250);ctx.lineTo(150,250);ctx.moveTo(100,250);ctx.lineTo(100,350);ctx.moveTo(100,300);ctx.lineTo(200,300);
+        ctx.moveTo(200,250);ctx.lineTo(200,350);ctx.moveTo(50,400);ctx.lineTo(100,400);ctx.lineTo(100,500);ctx.moveTo(150,500);
+        ctx.lineTo(50,500);ctx.lineTo(50,550);ctx.moveTo(2,450);ctx.lineTo(50,450);ctx.moveTo(100,598);ctx.lineTo(100,550);ctx.lineTo(200,550);
+        ctx.lineTo(200,450);ctx.lineTo(150,450);ctx.moveTo(200,500);ctx.lineTo(300,500);ctx.lineTo(300,550);ctx.lineTo(450,550);ctx.moveTo(400,550);
+        ctx.lineTo(400,500);ctx.moveTo(250,550);ctx.lineTo(250,598);ctx.moveTo(100,400);ctx.lineTo(250,400);ctx.lineTo(250,450);ctx.lineTo(300,450);
+        ctx.moveTo(150,400);ctx.lineTo(150,350);ctx.moveTo(250,400);ctx.lineTo(250,50);ctx.moveTo(250,100);ctx.lineTo(500,100);ctx.moveTo(350,100);
+        ctx.lineTo(350,50);ctx.moveTo(300,2);ctx.lineTo(300,50);ctx.moveTo(400,2);ctx.lineTo(400,50);ctx.lineTo(500,50);ctx.moveTo(550,50);
+        ctx.lineTo(550,200);ctx.lineTo(400,200);ctx.lineTo(400,100);ctx.moveTo(450,150);ctx.lineTo(600,150);ctx.moveTo(400,150);ctx.lineTo(300,150);
+        ctx.lineTo(300,300);ctx.lineTo(450,300);ctx.moveTo(350,200);ctx.lineTo(350,250);ctx.lineTo(600,250);ctx.lineTo(600,350);ctx.moveTo(250,350);
+        ctx.lineTo(500,350);ctx.lineTo(500,300);ctx.lineTo(550,300);ctx.moveTo(500,350);ctx.lineTo(500,400);ctx.lineTo(550,400);ctx.moveTo(350,350);
+        ctx.lineTo(350,500);ctx.moveTo(300,400);ctx.lineTo(350,400);ctx.moveTo(350,450);ctx.lineTo(600,450);ctx.moveTo(400,400);ctx.lineTo(450,400);
+        ctx.lineTo(450,500);ctx.lineTo(500,500);ctx.lineTo(500,598);ctx.moveTo(850,100);ctx.lineTo(850,150);ctx.lineTo(800,150);ctx.lineTo(800,50);
+        ctx.lineTo(600,50);ctx.lineTo(600,100);ctx.lineTo(650,100);ctx.lineTo(650,250);ctx.moveTo(850,50);ctx.lineTo(898,50);ctx.moveTo(700,50);
+        ctx.lineTo(700,100);ctx.moveTo(650,150);ctx.lineTo(750,150);ctx.lineTo(750,100);ctx.moveTo(600,250);ctx.lineTo(600,200);ctx.lineTo(898,200);
+        ctx.moveTo(850,200);ctx.lineTo(850,300);ctx.lineTo(800,300);ctx.lineTo(800,450);ctx.lineTo(850,450);ctx.lineTo(850,550);ctx.lineTo(800,550);
+        ctx.moveTo(850,400);ctx.lineTo(850,350);ctx.lineTo(898,350);ctx.moveTo(800,250);ctx.lineTo(700,250);ctx.moveTo(750,250);ctx.lineTo(750,500);
+        ctx.lineTo(800,500);ctx.moveTo(750,300);ctx.lineTo(650,300);ctx.lineTo(650,550);ctx.moveTo(550,350);ctx.lineTo(650,350);
+        ctx.moveTo(550,598);ctx.lineTo(550,500);ctx.lineTo(600,500);ctx.moveTo(700,598);ctx.lineTo(700,550);ctx.moveTo(750,598);ctx.lineTo(750,550);
+        ctx.moveTo(750,450);ctx.lineTo(700,450);ctx.moveTo(650,400);ctx.lineTo(700,400);ctx.lineTo(700,350);
+        ctx.stroke();
         lvlCollision = isPointInStroke();
-        ctx.beginPath();ctx.moveTo(898,268);ctx.lineTo(898,332);ctx.closePath();stroke("lime");
+        ctx.beginPath();ctx.moveTo(898,302);ctx.lineTo(898,346);ctx.closePath();stroke("lime");
         greenCollision = isPointInStroke();
     }
 }
 function checkCollision() {
     if((wallCollision || lvlCollision) && !greenCollision) {
+        document.getElementById('canvas').style.boxShadow = "10px 10px 10px red";
         if(audio) {
 			audioCollision.currentTime = 0;
 			audioCollision.play();
@@ -467,6 +506,7 @@ function checkCollision() {
         angle = 0;
     }
     if(greenCollision) {
+        document.getElementById('canvas').style.boxShadow = "10px 10px 10px lime";
     	time = window.performance.now() - time;
     	if(audio && (time >= times[lvl-1] || times[lvl-1] == undefined)) {
     		audioGreen.currentTime = 0;
@@ -586,7 +626,6 @@ function isPointInStroke() {
 function teleporter(numx,numy) {
 	if(ctx.isPointInStroke(player.x,player.y) || ctx.isPointInStroke(player.x-ry*2,player.y+rx*2) || 
     ctx.isPointInStroke(player.x+ry*2,player.y-rx*2)) {
-	console.log("hi")
 		player.x += numx;
 		player.y += numy;
 		for(var i=0;i<trail.length;i+=2) {
@@ -617,6 +656,7 @@ function box(string,number) {
 document.onkeydown = function(e) {
     if(e.keyCode == 37) left = true,right = false;
     if(e.keyCode == 39) right = true,left = false;
+    if(e.keyCode == 32) document.getElementById('canvas').style.boxShadow = "none";
     if(e.keyCode == 32 && lvlCompleted) lvlCompleted = false;
     if(e.keyCode == 32 && dead) dead = false;
     if(e.keyCode == 32 && !dead && !start && speedrun) {

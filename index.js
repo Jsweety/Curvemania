@@ -97,6 +97,7 @@ function drawTrail() {
 }
 function checkCollision() {
     if(wallCollision) {
+        document.getElementById('canvas').style.boxShadow = "10px 10px 10px red";
     	if(audio) {
 			audioCollision.currentTime = 0;
 			audioCollision.play();
@@ -123,7 +124,7 @@ function checkConditions() {
 }
 function deadMessage() {
     document.getElementById('canvas-message').style.display = "block";
-    document.getElementById('canvas-message').innerHTML = "Spacebar to restart level";
+    document.getElementById('canvas-message').innerHTML = "Spacebar to restart";
 }
 function drawRectangle() {
     ctx.beginPath();
@@ -151,6 +152,7 @@ function isPointInStroke() {
 document.onkeydown = function(e) {
     if(e.keyCode == 37) left = true,right = false;
     if(e.keyCode == 39) right = true,left = false;
+    if(e.keyCode == 32) document.getElementById('canvas').style.boxShadow = "none";
     if(e.keyCode == 32 && dead) dead = false;
     if(dead) left = false,right = false;
 }

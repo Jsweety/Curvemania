@@ -584,6 +584,7 @@ table td:hover {
 #canvas {
 	background-color: black;
 	height: 85vh;
+	transition: .25s;
 }
 .canvas-content p {
 	display: none;

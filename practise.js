@@ -12,6 +12,7 @@ var fps = 100,fpsInterval,startTime,now,then,elapsed;
 var cookies,cookie,playerCookie,patternsCookie,extrasCookie,colorsCookie,splitNumber;
 var colors = ["red","blue","purple","green","cyan","orange","yellow","pink","white"];
 var shape = ["square","round"],gap = [14,20,28,36],shadow = [0,10];
+var audioCollision = new Audio('sound/collision.wav');
 
 window.onload = function() {
     cookies();
@@ -121,6 +122,11 @@ function drawRoom() {
 }
 function checkCollision() {
     if(wallCollision || lvlCollision) {
+        document.getElementById('canvas').style.boxShadow = "10px 10px 10px red";
+        if(audio) {
+			audioCollision.currentTime = 0;
+			audioCollision.play();
+    	}
         deadMessage();
         wallCollision = lvlCollision = left = right = false;
         start = dead = true;
@@ -144,7 +150,7 @@ function checkConditions() {
 }
 function deadMessage() {
     document.getElementById('canvas-message').style.display = "block";
-    document.getElementById('canvas-message').innerHTML = "Spacebar to restart level";
+    document.getElementById('canvas-message').innerHTML = "Spacebar to restart";
 }
 function drawRectangle() {
     ctx.beginPath();
@@ -172,6 +178,7 @@ function isPointInStroke() {
 document.onkeydown = function(e) {
     if(e.keyCode == 37) left = true,right = false;
     if(e.keyCode == 39) right = true,left = false;
+    if(e.keyCode == 32) document.getElementById('canvas').style.boxShadow = "none";
     if(e.keyCode == 32 && dead) dead = false;
     if(dead) left = false,right = false;
 }
