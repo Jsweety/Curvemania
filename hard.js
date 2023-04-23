@@ -92,10 +92,10 @@ function startPosition() {
     }
 } 
 function newPosition() {
-    if(left) angle -= 0.044;
-    if(right) angle += 0.044;
-    rx = 1.75*Math.cos(angle);
-    ry = 1.75*Math.sin(angle);
+    if(left) angle -= 0.056;
+    if(right) angle += 0.056;
+    rx = 2.25*Math.cos(angle);
+    ry = 2.25*Math.sin(angle);
     player.x += rx;
     player.y += ry;
 }
@@ -111,7 +111,7 @@ function drawTrail() {
     ctx.setLineDash([(120/(splitNumber+1))-gap[playerCookie[1]]*((splitNumber)/(splitNumber+1)),gap[playerCookie[1]]]);
     ctx.beginPath();
     ctx.moveTo(trail[0],trail[1]);
-    for (var i=2;i<128;i+=2) {
+    for (var i=2;i<116;i+=2) {
         ctx.lineTo(trail[i],trail[i+1]);
     }
     ctx.stroke();
@@ -126,7 +126,7 @@ function drawPbTrail() {
     ctx.strokeStyle = "rgba(250,0,0,0.5)";
     ctx.beginPath();
     ctx.moveTo(trails[lvl-1][iStart],trails[lvl-1][iStart+1]);
-    for (var i=iStart+2;i<iStart+130;i+=2) {
+    for (var i=iStart+2;i<iStart+118;i+=2) {
         ctx.lineTo(trails[lvl-1][i],trails[lvl-1][i+1]);
     }
     ctx.stroke();
@@ -588,8 +588,8 @@ function lvlCompletedMessage() {
 }
 function modeCompletedMessage() {
 	document.getElementById('canvas-message').style.display = "block";
-	if(!speedrun) document.getElementById('canvas-message').innerHTML = "Easy Mode completed!";
-	else document.getElementById('canvas-message').innerHTML = "Easy Mode completed!<br>Spacebar to restart level";
+	if(!speedrun) document.getElementById('canvas-message').innerHTML = "Hard Mode completed!";
+	else document.getElementById('canvas-message').innerHTML = "Hard Mode completed!<br>Spacebar to restart level";
 }
 function message() {
 	timer = !dead && !start ? (window.performance.now()-time)/1000 : 0;

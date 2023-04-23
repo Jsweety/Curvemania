@@ -77,6 +77,7 @@ function draw(newtime) {
             drawPbTrail();
             drawTrail();
             drawLevel(lvl);
+            drawLantern();
             message();
             checkCollision();
         }
@@ -92,10 +93,10 @@ function startPosition() {
     }
 } 
 function newPosition() {
-    if(left) angle -= 0.044;
-    if(right) angle += 0.044;
-    rx = 1.75*Math.cos(angle);
-    ry = 1.75*Math.sin(angle);
+    if(left) angle -= 0.05;
+    if(right) angle += 0.05;
+    rx = 2*Math.cos(angle);
+    ry = 2*Math.sin(angle);
     player.x += rx;
     player.y += ry;
 }
@@ -111,7 +112,7 @@ function drawTrail() {
     ctx.setLineDash([(120/(splitNumber+1))-gap[playerCookie[1]]*((splitNumber)/(splitNumber+1)),gap[playerCookie[1]]]);
     ctx.beginPath();
     ctx.moveTo(trail[0],trail[1]);
-    for (var i=2;i<128;i+=2) {
+    for (var i=2;i<122;i+=2) {
         ctx.lineTo(trail[i],trail[i+1]);
     }
     ctx.stroke();
@@ -126,7 +127,7 @@ function drawPbTrail() {
     ctx.strokeStyle = "rgba(250,0,0,0.5)";
     ctx.beginPath();
     ctx.moveTo(trails[lvl-1][iStart],trails[lvl-1][iStart+1]);
-    for (var i=iStart+2;i<iStart+130;i+=2) {
+    for (var i=iStart+2;i<iStart+124;i+=2) {
         ctx.lineTo(trails[lvl-1][i],trails[lvl-1][i+1]);
     }
     ctx.stroke();
@@ -491,6 +492,17 @@ function drawLevel(lvl) {
         greenCollision = isPointInStroke();
     }
 }
+function drawLantern() {
+	if(!start) {
+		var gradient = ctx.createRadialGradient(player.x,player.y,0,player.x,player.y,70);
+		gradient.addColorStop(0,"transparent");
+		gradient.addColorStop(1,"black");
+		ctx.save();
+		ctx.fillStyle = gradient;
+		ctx.fillRect(0,0,ctx.width,ctx.height);
+		ctx.beginPath();ctx.arc(player.x,player.y,70,0,2*Math.PI);ctx.stroke();
+	}
+}
 function checkCollision() {
     if((wallCollision || lvlCollision) && !greenCollision) {
         document.getElementById('canvas').style.boxShadow = "10px 10px 10px red";
@@ -588,8 +600,8 @@ function lvlCompletedMessage() {
 }
 function modeCompletedMessage() {
 	document.getElementById('canvas-message').style.display = "block";
-	if(!speedrun) document.getElementById('canvas-message').innerHTML = "Easy Mode completed!";
-	else document.getElementById('canvas-message').innerHTML = "Easy Mode completed!<br>Spacebar to restart level";
+	if(!speedrun) document.getElementById('canvas-message').innerHTML = "Lantern Mode completed!";
+	else document.getElementById('canvas-message').innerHTML = "Lantern Mode completed!<br>Spacebar to restart level";
 }
 function message() {
 	timer = !dead && !start ? (window.performance.now()-time)/1000 : 0;

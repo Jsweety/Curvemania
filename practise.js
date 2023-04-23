@@ -56,7 +56,6 @@ function draw(newtime) {
             startPosition();
             newPosition();
             drawTrail();
-            drawRectangle();
             drawRoom();
             checkCollision();
         }
@@ -65,7 +64,7 @@ function draw(newtime) {
 }
 function startPosition() {
     if(start) {
-        player.x = 12;
+        player.x = 8;
         player.y = 300;
         start = false;
     }
@@ -138,7 +137,6 @@ function checkConditions() {
     if(start && !dead && (!left && !right)) {
         ctx.clearRect(0,0,width,height);
         drawSquare();
-        drawRectangle();
         drawRoom();
         document.getElementById('canvas-message').style.display = "none";
         return false;
@@ -152,14 +150,8 @@ function deadMessage() {
     document.getElementById('canvas-message').style.display = "block";
     document.getElementById('canvas-message').innerHTML = "Spacebar to restart";
 }
-function drawRectangle() {
-    ctx.beginPath();
-    ctx.rect(2,2,896,596);
-    ctx.stroke();
-    wallCollision = isPointInStroke();
-}
 function drawSquare() {
-    trail[0] = 8;trail[1] = 300;trail[2] = 4;trail[3] = 300;
+    trail[0] = 4;trail[1] = 300;trail[2] = 0;trail[3] = 300;
     ctx.beginPath();
     ctx.moveTo(trail[0],trail[1]);ctx.lineTo(trail[2],trail[3]);
     ctx.save();

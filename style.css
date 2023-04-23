@@ -583,6 +583,7 @@ table td:hover {
 }
 #canvas {
 	background-color: black;
+	border: 4px solid white;
 	height: 85vh;
 	transition: .25s;
 }
