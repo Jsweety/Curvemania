@@ -4,7 +4,7 @@ var player = {x:0,y:0,size:8};
 var angle = 0;
 var rx = 0,ry = 0;
 var trail = [];
-var start = true,dead = false,wallCollision = false,lvlCollision = false,greenCollision = false;
+var start = true,dead = false,lvlCollision = false,greenCollision = false;
 var fps = 100,fpsInterval,startTime,now,then,elapsed;
 var lvl = 0,lvlCompleted = false,modeCompleted = false;
 var maxLvl = localStorage.getItem('maxLvl') != null ? parseInt(localStorage.getItem('maxLvl')) : 1;
@@ -492,14 +492,14 @@ function drawLevel(lvl) {
     }
 }
 function checkCollision() {
-    if((wallCollision || lvlCollision) && !greenCollision) {
+    if((wallCollision() || lvlCollision) && !greenCollision) {
         document.getElementById('canvas').style.boxShadow = "10px 10px 10px red";
         if(audio) {
 			audioCollision.currentTime = 0;
 			audioCollision.play();
     	}
         deadMessage();
-        wallCollision = lvlCollision = left = right = false;
+        lvlCollision = left = right = false;
         start = dead = true;
         trail = [];
         angle = 0;
@@ -576,6 +576,10 @@ function checkConditions() {
         return false;
     }
     return true;
+}
+function wallCollision() {
+	ctx.save();ctx.strokeStyle="transparent";ctx.lineWidth=0;ctx.beginPath();ctx.rect(0,0,900,600);ctx.stroke();ctx.restore();
+	return isPointInStroke();
 }
 function deadMessage() {
     document.getElementById('canvas-message').style.display = "block";

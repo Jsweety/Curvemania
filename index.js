@@ -7,7 +7,7 @@ var player = {
 var angle = 0;
 var rx = 0,ry = 0;
 var trail = [];
-var start = true,dead = false,wallCollision = false;
+var start = true,dead = false;
 var fps = 100,fpsInterval,startTime,now,then,elapsed;
 var cookies,cookie,playerCookie,patternsCookie,extrasCookie,colorsCookie,splitNumber;
 var colors = ["red","blue","purple","green","cyan","orange","yellow","pink","white"];
@@ -95,14 +95,14 @@ function drawTrail() {
     ctx.restore();
 }
 function checkCollision() {
-    if(wallCollision) {
+    if(wallCollision()) {
         document.getElementById('canvas').style.boxShadow = "10px 10px 10px red";
     	if(audio) {
 			audioCollision.currentTime = 0;
 			audioCollision.play();
     	}
         deadMessage();
-        wallCollision = left = right = false;
+        left = right = false;
         start = dead = true;
         trail = [];
         angle = 0;
@@ -119,6 +119,10 @@ function checkConditions() {
         return false;
     }
     return true;
+}
+function wallCollision() {
+	ctx.save();ctx.strokeStyle="transparent";ctx.lineWidth=0;ctx.beginPath();ctx.rect(0,0,900,600);ctx.stroke();ctx.restore();
+	return isPointInStroke();
 }
 function deadMessage() {
     document.getElementById('canvas-message').style.display = "block";

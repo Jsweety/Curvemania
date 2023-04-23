@@ -7,7 +7,7 @@ var player = {
 var angle = 0;
 var rx = 0,ry = 0;
 var trail = [];
-var start = true,dead = false,wallCollision = false,lvlCollision = false;
+var start = true,dead = false,lvlCollision = false;
 var fps = 100,fpsInterval,startTime,now,then,elapsed;
 var cookies,cookie,playerCookie,patternsCookie,extrasCookie,colorsCookie,splitNumber;
 var colors = ["red","blue","purple","green","cyan","orange","yellow","pink","white"];
@@ -120,14 +120,14 @@ function drawRoom() {
     lvlCollision = isPointInStroke();
 }
 function checkCollision() {
-    if(wallCollision || lvlCollision) {
+    if(wallCollision() || lvlCollision) {
         document.getElementById('canvas').style.boxShadow = "10px 10px 10px red";
         if(audio) {
 			audioCollision.currentTime = 0;
 			audioCollision.play();
     	}
         deadMessage();
-        wallCollision = lvlCollision = left = right = false;
+        lvlCollision = left = right = false;
         start = dead = true;
         trail = [];
         angle = 0;
@@ -145,6 +145,10 @@ function checkConditions() {
         return false;
     }
     return true;
+}
+function wallCollision() {
+	ctx.save();ctx.strokeStyle="transparent";ctx.lineWidth=0;ctx.beginPath();ctx.rect(0,0,900,600);ctx.stroke();ctx.restore();
+	return isPointInStroke();
 }
 function deadMessage() {
     document.getElementById('canvas-message').style.display = "block";
