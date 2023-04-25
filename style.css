@@ -493,7 +493,6 @@ table td:nth-child(1) {
 }
 table td:nth-child(2) {
 	width: 35%;
-	cursor: pointer;
 }
 table td:nth-child(3) {
 	width: 21%;
@@ -635,4 +634,21 @@ table td:hover {
 	font-size: 20px;
 	line-height: 25px;
 	background-color: transparent;
+}
+#snake-score {
+	display: block;
+	left: 3px;
+	top: 3px;
+	width: 110px;
+	line-height: 25px;
+	border-radius: 0 0 10px 0;
+}
+#snake-highscore {
+	display: block;
+	right: 3px;
+	top: 3px;
+	top: 3px;
+	width: 150px;
+	line-height: 25px;
+	border-radius: 0 0 0 10px;
 }

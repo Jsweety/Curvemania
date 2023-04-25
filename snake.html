@@ -2,10 +2,11 @@
 <html lang="en">
 	<head>
 		<meta charset="utf-8">
-		<title>Curvemania | Play</title>
+		<title>Curvemania | Snake Mode</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<link rel="shortcut icon" type="image/x-icon" href="images/icon.png"/>
 		<link rel="stylesheet" type="text/css" href="style.css">
+		<script type="text/javascript" src="snake.js"></script>
 		<script type="text/javascript" src="overlays.js"></script>
 	</head>
 	<body ondragstart="return false;" ondrop="return false;">
@@ -19,28 +20,33 @@
 			<a href="account.html">🧑</a>
 		</div>
 		<div class="head">
-			<p class="header">Play</p>
+			<p class="header">Snake Mode</p>
 			<p id="currency">100🪙</p>
 		</div>
 		<div class="game">
-			<div class="row">
-				<a class="game-mode" href="easy.html">Easy<br>Mode</a>
-				<a class="game-mode" href="medium.html">Medium<br>Mode</a>
-				<a class="game-mode" href="hard.html">Hard<br>Mode</a>
-			</div>
-			<div class="row">
-				<a class="game-mode" href="practise.html">Practise<br>Mode</a>
-				<a class="game-mode" href="snake.html">Snake<br>Mode</a>
-			</div>
-			<div class="row">
-				<a class="game-mode" href="lantern.html">Lantern<br>Mode</a>
-				<a class="game-mode" href="inverted.html">Inverted<br>Mode</a>
-				<a class="game-mode" href="coin.html">Coin<br>Mode</a>
+			<div class="canvas-content">
+				<canvas id="canvas" width="400" height="400"></canvas>
+				<p id="snake-score">Score: 0</p>
+				<p id="snake-highscore"></p>
+				<p id="canvas-message"></p>
 			</div>
 			<div class="controls">
 				<img src="images/audio.png" id="audio" onclick="playAudio()" title="audio">
 				<img src="images/music.png" id="music" onclick="playMusic()" title="music">
 				<img src="images/full.png" id="full" onclick="fullScreen()" title="fullscreen">
+			</div>
+			<div id="friends">
+				<p id="title" onclick="friends()">Friends</p>
+				<select id="friend-select">
+					<option value="0">Invite</option>
+					<option value="1">Name#1</option>
+					<option value="2">Name#2</option>
+					<option value="3">Name#3</option>
+					<option value="4">Name#4</option>
+					<option value="5">Name#5</option>
+					<option value="6">Name#6</option>
+				</select>
+				<button id="send-button">Send</button>
 			</div>
 		</div>
 	</body>

@@ -13,8 +13,12 @@ var cookies,cookie,playerCookie,patternsCookie,extrasCookie,colorsCookie,splitNu
 var colors = ["red","blue","purple","green","cyan","orange","yellow","pink","white"];
 var shape = ["square","round"],gap = [14,20,28,36],shadow = [0,10];
 var audioCollision = new Audio('sound/collision.wav');
+var audioCoin = new Audio('sound/coin.wav');
+var snakeX=snakeY=200,snakeScore = 0;
+var snakeHighscore = localStorage.getItem('snakeHighscore') != null ? parseInt(localStorage.getItem('snakeHighscore')) : "0";
 
 window.onload = function() {
+	document.getElementById('snake-highscore').innerHTML = "Highscore: " + snakeHighscore;
     cookies();
     canvas = document.getElementById('canvas');
     ctx = canvas.getContext('2d');
@@ -56,6 +60,9 @@ function draw(newtime) {
             startPosition();
             newPosition();
             drawTrail();
+			drawCoin();
+			checkCoinCollision();
+			checkTrailCollision();
             checkCollision();
         }
     }
@@ -64,7 +71,7 @@ function draw(newtime) {
 function startPosition() {
     if(start) {
         player.x = 8;
-        player.y = 300;
+        player.y = 200;
         start = false;
     }
 }
@@ -85,17 +92,49 @@ function drawTrail() {
     ctx.shadowBlur = shadow[playerCookie[3]];
     ctx.shadowColor = colors[playerCookie[4]];
     ctx.strokeStyle = colors[playerCookie[4]];
-    ctx.setLineDash([(120/(splitNumber+1))-gap[playerCookie[1]]*((splitNumber)/(splitNumber+1)),gap[playerCookie[1]]]);
     ctx.beginPath();
     ctx.moveTo(trail[0],trail[1]);
-    for (var i=2;i<128;i+=2) {
+    for (var i=2;i<128+snakeScore*20;i+=2) {
         ctx.lineTo(trail[i],trail[i+1]);
     }
     ctx.stroke();
     ctx.restore();
 }
+function drawCoin() {
+	ctx.save(); ctx.strokeStyle="yellow"; ctx.fillStyle = "yellow";
+	ctx.beginPath();ctx.arc(snakeX,snakeY,4,0,2*Math.PI);ctx.stroke();ctx.fill();
+	ctx.restore();
+}
+function checkCoinCollision() {
+	if(isPointInStroke()) {
+		snakeScore++;
+		document.getElementById('snake-score').innerHTML = "Score: " + snakeScore;
+		do {
+			snakeX = Math.floor(Math.random()*(394-6+1)+6);
+			snakeY = Math.floor(Math.random()*(394-6+1)+6);
+		}
+		while(snakeX<8 && snakeY<30 && snakeX>392 && snakeY>392);
+		if(audio) {
+			audioCoin.currentTime = 0;
+			audioCoin.play();
+    	}
+	}
+}
+function checkTrailCollision() {
+	ctx.save();
+	ctx.strokeStyle = "transparent";
+	ctx.beginPath();
+    ctx.moveTo(trail[8],trail[9]);
+    for (var i=10;i<128+snakeScore*20;i+=2) {
+        ctx.lineTo(trail[i],trail[i+1]);
+    }
+    ctx.stroke();
+    ctx.restore();
+    if(isPointInStroke()) return true;
+    else return false;
+}
 function checkCollision() {
-    if(wallCollision()) {
+    if(wallCollision() || checkTrailCollision()) {
         document.getElementById('canvas').style.boxShadow = "10px 10px 10px red";
     	if(audio) {
 			audioCollision.currentTime = 0;
@@ -106,12 +145,14 @@ function checkCollision() {
         start = dead = true;
         trail = [];
         angle = 0;
+        snakeX = snakeY = 200;
     }
 }
 function checkConditions() {
     if(start && !dead && (!left && !right)) {
         ctx.clearRect(0,0,width,height);
         drawSquare();
+        drawCoin();
         document.getElementById('canvas-message').style.display = "none";
         return false;
     }
@@ -121,7 +162,7 @@ function checkConditions() {
     return true;
 }
 function wallCollision() {
-	ctx.save();ctx.strokeStyle="transparent";ctx.lineWidth=0;ctx.beginPath();ctx.rect(0,0,900,600);ctx.stroke();ctx.restore();
+	ctx.save();ctx.strokeStyle="transparent";ctx.lineWidth=0;ctx.beginPath();ctx.rect(0,0,400,400);ctx.stroke();ctx.restore();
 	return isPointInStroke();
 }
 function deadMessage() {
@@ -129,7 +170,7 @@ function deadMessage() {
     document.getElementById('canvas-message').innerHTML = "Spacebar to restart";
 }
 function drawSquare() {
-    trail[0] = 4;trail[1] = 300;trail[2] = 0;trail[3] = 300;
+    trail[0] = 4;trail[1] = 200;trail[2] = 0;trail[3] = 200;
     ctx.beginPath();
     ctx.moveTo(trail[0],trail[1]);ctx.lineTo(trail[2],trail[3]);
     ctx.save();
@@ -149,7 +190,15 @@ document.onkeydown = function(e) {
     if(e.keyCode == 37) left = true,right = false;
     if(e.keyCode == 39) right = true,left = false;
     if(e.keyCode == 32) document.getElementById('canvas').style.boxShadow = "none";
-    if(e.keyCode == 32 && dead) dead = false;
+    if(e.keyCode == 32 && dead) {
+    	dead = false;
+    	if(snakeScore > snakeHighscore) {
+        	localStorage.setItem("snakeHighscore", snakeScore);
+			document.getElementById('snake-highscore').innerHTML = "Highscore: " + snakeScore;
+		}
+    	snakeScore = 0;
+        document.getElementById('snake-score').innerHTML = "Score: " + snakeScore;
+    }
     if(dead) left = false,right = false;
 }
 document.onkeyup = function(e) {

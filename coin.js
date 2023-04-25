@@ -500,7 +500,7 @@ function drawLevel(lvl) {
     }
 }
 function drawCoins(lvl) {
-	ctx.save();ctx.strokeStyle = "orange";ctx.fillStyle = "orange";
+	ctx.save();ctx.strokeStyle = "yellow";ctx.fillStyle = "yellow";
     if(!coin1) {ctx.beginPath();ctx.arc(coins[lvl-1][0],coins[lvl-1][1],4,0,2*Math.PI);ctx.stroke();ctx.fill();}
     if(!coin2) {ctx.beginPath();ctx.arc(coins[lvl-1][2],coins[lvl-1][3],4,0,2*Math.PI);ctx.stroke();ctx.fill();}
     if(!coin3) {ctx.beginPath();ctx.arc(coins[lvl-1][4],coins[lvl-1][5],4,0,2*Math.PI);ctx.stroke();ctx.fill();}
