@@ -18,6 +18,12 @@ var shape = ["square","round"],gap = [14,20,28,36],shadow = [0,10];
 var audioGreen = new Audio('sound/green.wav');
 var audioHighscore = new Audio('sound/highscore.wav');
 var audioCollision = new Audio('sound/collision.wav');
+var audioCoin = new Audio('sound/coin.wav');
+var coin1 = coin2 = coin3 = false;
+var coins = [[150,250,450,350,750,250],[110,230,450,390,710,230],[450,250,450,350,500,300],[170,180,450,420,730,180],[225,40,225,560,450,300],
+			 [260,240,470,370,600,300],[170,195,450,195,730,195],[163,237,315,180,570,145],[305,210,125,500,830,215],[276,285,380,310,760,335],
+			 [450,240,215,408,870,315],[150,300,390,270,500,470],[115,240,520,385,785,360],[148,130,338,210,555,220],[250,232,452,370,250,115],
+			 [180,300,450,290,660,300],[343,192,80,155,623,407],[138,390,280,295,825,330],[392,188,557,156,695,370],[200,357,550,25,590,550]];
 
 window.onload = function() {
     spans = document.querySelectorAll(".game span");
@@ -77,7 +83,9 @@ function draw(newtime) {
             drawPbTrail();
             drawTrail();
             drawLevel(lvl);
+            drawCoins(lvl);
             message();
+            checkCoinCollision();
             checkCollision();
         }
     }
@@ -92,10 +100,10 @@ function startPosition() {
     }
 } 
 function newPosition() {
-    if(left) angle -= 0.044;
-    if(right) angle += 0.044;
-    rx = 1.75*Math.cos(angle);
-    ry = 1.75*Math.sin(angle);
+    if(left) angle -= 0.05;
+    if(right) angle += 0.05;
+    rx = 2*Math.cos(angle);
+    ry = 2*Math.sin(angle);
     player.x += rx;
     player.y += ry;
 }
@@ -111,7 +119,7 @@ function drawTrail() {
     ctx.setLineDash([(120/(splitNumber+1))-gap[playerCookie[1]]*((splitNumber)/(splitNumber+1)),gap[playerCookie[1]]]);
     ctx.beginPath();
     ctx.moveTo(trail[0],trail[1]);
-    for (var i=2;i<128;i+=2) {
+    for (var i=2;i<122;i+=2) {
         ctx.lineTo(trail[i],trail[i+1]);
     }
     ctx.stroke();
@@ -126,7 +134,7 @@ function drawPbTrail() {
     ctx.strokeStyle = "rgba(250,0,0,0.5)";
     ctx.beginPath();
     ctx.moveTo(trails[lvl-1][iStart],trails[lvl-1][iStart+1]);
-    for (var i=iStart+2;i<iStart+130;i+=2) {
+    for (var i=iStart+2;i<iStart+124;i+=2) {
         ctx.lineTo(trails[lvl-1][i],trails[lvl-1][i+1]);
     }
     ctx.stroke();
@@ -491,6 +499,41 @@ function drawLevel(lvl) {
         greenCollision = isPointInStroke();
     }
 }
+function drawCoins(lvl) {
+	ctx.save();ctx.strokeStyle = "orange";ctx.fillStyle = "orange";
+    if(!coin1) {ctx.beginPath();ctx.arc(coins[lvl-1][0],coins[lvl-1][1],4,0,2*Math.PI);ctx.stroke();ctx.fill();}
+    if(!coin2) {ctx.beginPath();ctx.arc(coins[lvl-1][2],coins[lvl-1][3],4,0,2*Math.PI);ctx.stroke();ctx.fill();}
+    if(!coin3) {ctx.beginPath();ctx.arc(coins[lvl-1][4],coins[lvl-1][5],4,0,2*Math.PI);ctx.stroke();ctx.fill();}
+    ctx.restore();
+}
+function checkCoinCollision() {
+	ctx.save();ctx.strokeStyle = "transparent";
+	ctx.beginPath();ctx.arc(coins[lvl-1][0],coins[lvl-1][1],4,0,2*Math.PI);ctx.stroke();
+	if(isPointInStroke() && !coin1) {
+		coin1 = true;
+		if(audio) {
+			audioCoin.currentTime = 0;
+			audioCoin.play();
+    	}
+	}
+	ctx.beginPath();ctx.arc(coins[lvl-1][2],coins[lvl-1][3],4,0,2*Math.PI);ctx.stroke();
+	if(isPointInStroke() && !coin2) {
+		coin2 = true;
+		if(audio) {
+			audioCoin.currentTime = 0;
+			audioCoin.play();
+    	}
+	}
+	ctx.beginPath();ctx.arc(coins[lvl-1][4],coins[lvl-1][5],4,0,2*Math.PI);ctx.stroke();
+	if(isPointInStroke() && !coin3) {
+		coin3 = true;
+		if(audio) {
+			audioCoin.currentTime = 0;
+			audioCoin.play();
+    	}
+	}
+	ctx.restore();
+}
 function checkCollision() {
     if((wallCollision() || lvlCollision) && !greenCollision) {
         document.getElementById('canvas').style.boxShadow = "10px 10px 10px red";
@@ -499,14 +542,15 @@ function checkCollision() {
 			audioCollision.play();
     	}
         deadMessage();
-        lvlCollision = left = right = false;
+        lvlCollision = left = right = coin1 = coin2 = coin3 = false;
         start = dead = true;
         trail = [];
         angle = 0;
     }
-    if(greenCollision) {
+    if(greenCollision && coin1 && coin2 && coin3) {
         document.getElementById('canvas').style.boxShadow = "10px 10px 10px lime";
     	time = window.performance.now() - time;
+    	coin1 = coin2 = coin3 = false;
     	if(audio && (time >= times[lvl-1] || times[lvl-1] == undefined)) {
     		audioGreen.currentTime = 0;
     		audioGreen.play();
@@ -563,6 +607,7 @@ function checkConditions() {
         ctx.clearRect(0,0,ctx.width,ctx.height);
         drawSquare();
         drawLevel(lvl);
+        drawCoins(lvl);
         message();
         document.getElementById('canvas-message').style.display = "none";
 		document.getElementById('time-message').style.display = "none";
@@ -592,8 +637,8 @@ function lvlCompletedMessage() {
 }
 function modeCompletedMessage() {
 	document.getElementById('canvas-message').style.display = "block";
-	if(!speedrun) document.getElementById('canvas-message').innerHTML = "Easy Mode completed!";
-	else document.getElementById('canvas-message').innerHTML = "Easy Mode completed!<br>Spacebar to restart level";
+	if(!speedrun) document.getElementById('canvas-message').innerHTML = "Coin Mode completed!";
+	else document.getElementById('canvas-message').innerHTML = "Coin Mode completed!<br>Spacebar to restart level";
 }
 function message() {
 	timer = !dead && !start ? (window.performance.now()-time)/1000 : 0;
@@ -656,7 +701,7 @@ document.onkeydown = function(e) {
     if(e.keyCode == 32 && lvlCompleted) lvlCompleted = false;
     if(e.keyCode == 32 && dead) dead = false;
     if(e.keyCode == 32 && !dead && !start && speedrun) {
-    	dead = left = right = false;
+    	dead = left = right = coin1 = coin2 = coin3 = false;
     	start = true;
     	trail = [];
     	angle = 0;
