@@ -114,7 +114,6 @@ function checkCoinCollision() {
 			snakeY = Math.floor(Math.random()*(394-6+1)+6);
 		}
 		while(snakeX<8 || snakeY<30 || snakeX>392 || snakeY>392);
-		console.log(snakeX + " " + snakeY);
 		if(audio) {
 			audioCoin.currentTime = 0;
 			audioCoin.play();

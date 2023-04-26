@@ -7,6 +7,7 @@
 		<link rel="shortcut icon" type="image/x-icon" href="images/icon.png"/>
 		<link rel="stylesheet" type="text/css" href="style.css">
 		<script type="text/javascript" src="overlays.js"></script>
+		<script type="text/javascript" src="account.js"></script>
 	</head>
 	<body ondragstart="return false;" ondrop="return false;">
 		<div class="navbar">
@@ -23,6 +24,39 @@
 			<p id="currency">100🪙</p>
 		</div>
 		<div class="game">
+			<div class="logged-out">
+				<p id="login-text" onclick="swapLog('login','register')">Login</p><p id="register-text" onclick="swapLog('register','login')">Register</p>
+				<form id="login">
+					<label for="username"><b>Username</b></label>
+				    <input type="text" placeholder="Enter Username" name="username" id="username" required>
+				    <label for="psw"><b>Password</b></label>
+				    <input type="password" placeholder="Enter Password" name="psw" id="psw" required>
+				    <button type="submit" class="login-btn">Login</button>
+				</form>
+				<form id="register">
+					<label for="username"><b>Username</b></label>
+				    <input type="text" placeholder="Enter Username" name="username" id="username" required>
+					<label for="email"><b>Email</b></label>
+				    <input type="text" placeholder="Enter Email" name="email" id="email" required>
+				    <label for="password"><b>Password</b></label>
+				    <input type="password" placeholder="Enter Password" name="password" id="password" required>
+				    <label for="password-repeat"><b>Repeat Password</b></label>
+				    <input type="password" placeholder="Repeat Password" name="password-repeat" id="password-repeat" required>
+				    <button type="submit" class="register-btn">Register</button>
+				</form>
+			</div>
+			<div class="logged-in">
+				<p>Username</p><p id="username">Jsweety</p>
+				<p>Game completion</p><p id="game-completion">32%</p>
+				<p>Levels completed</p><p id="levels-completed">12/120</p>
+				<p>Total deaths</p><p id="total-deaths">113</p>
+				<p>Coins collected</p><p id="total-coins">83</p>
+				<p>Total time survived</p><p id="total-time">52m</p>
+				<p>1st place placements</p><p id="first-place">3</p>
+				<p>2nd place placements</p><p id="second-place">5</p>
+				<p>3rd place placements</p><p id="third-place">9</p>
+				<button>Log out</button>
+			</div>
 			<div class="controls">
 				<img src="images/audio.png" id="audio" onclick="playAudio()" title="audio">
 				<img src="images/music.png" id="music" onclick="playMusic()" title="music">
