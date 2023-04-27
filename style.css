@@ -710,10 +710,10 @@ table td:hover {
 	transition: .35s;
 }
 .logged-out button:hover {
-	box-shadow: 300px 0 red inset;
+	box-shadow: 200px 0 red inset;
 }
 .logged-out button:active {
-	box-shadow: 300px 0 darkred inset;
+	box-shadow: 200px 0 darkred inset;
 }
 #register {
 	display: none;
@@ -757,3 +757,25 @@ table td:hover {
 .logged-in button:active {
 	box-shadow: 300px 0 darkred inset;
 }
+
+/*Mobile*/
+.mobile {
+	border: groove red 10px;
+	color: white;
+	display: none;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%,-50%);
+	font-size: 20px;
+	width: 80%;
+	padding: 10px;
+}
+@media (hover: none) {
+	div:not(.mobile){
+		display: none;
+	}
+	.mobile {
+		display: block;
+	}
+} 
