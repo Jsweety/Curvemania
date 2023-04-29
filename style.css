@@ -461,14 +461,15 @@ body {
 	background-color: #333;
 }
 table {
-	border-collapse: collapse;
 	width: 34vw;
 	height: 80vh;
 	text-align: center;
 	margin-top: 2vh;
+	color: white;
+	border: solid 2px red;
 }
 table tr {
-	background-color: #a597ce;
+	background-color: #444;
 }
 table tr:nth-child(1) {
 	background-color: red;
@@ -489,6 +490,7 @@ table th {
 	font-weight: bold;
 }
 table td:nth-child(1) {
+	font-weight: bold;
 	width: 8%;
 }
 table td:nth-child(2) {
@@ -508,75 +510,24 @@ table td:hover {
 	background-color: white;
 }
 
-/*Settings*/
+/*Achievements*/
 
-.settings {
-	border: groove white 10px;
-	padding: 1%;
+.achievements {
+	border: groove 10px white;
+	height: 80vh;
+	overflow-y: scroll;
 }
-.settings-header {
-	padding-bottom: 10px;
-	border-bottom: 2px solid white;
-}
-.settings-header span {
+.achievement {
 	color: white;
 	font-size: 25px;
 	font-weight: bold;
-}
-#audio-level {
-	margin-right: 50px;
-}
-#audio-level,#music-level {
-	display: inline-block;
+	padding: 10px;
 	text-align: center;
-	width: 60px;
-}
-.settings-body {
-	display: flex;
-	flex-direction: column;
-}
-.settings-body div {
-	margin: 5px 0;
-}
-.settings-body p {
-	margin: 10px 0 0 0;
-	text-align: center;
-	color: white;
-	font-size: 30px;
-	font-weight: bold;
-}
-.settings-body span {
-	color: white;
-	font-size: 25px;
-	font-weight: bold;
-}
-.settings-body span:nth-child(1) {
-	float: left;
-	width: 45%;
-}
-.settings-body span:nth-child(2) {
-	float: left;
-	width: 4%;
-	background-color: #00a6ed;
-	text-align: center;
-	padding: 2px;
-	border-radius: 6px;
-}
-.settings-body span:nth-child(3) {
-	float: right;
-	width: 45%;
-	text-align: right;
-}
-.settings-body span:nth-child(4) {
-	float: right;
-	width: 4%;
-	background-color: #00a6ed;
-	text-align: center;
-	padding: 2px;
-	border-radius: 4px;
+	border-bottom: 2px solid gray;
 }
 
 /*Canvas*/
+
 .canvas-content {
 	position: relative;
 }
@@ -654,6 +605,7 @@ table td:hover {
 }
 
 /*Account*/
+
 .logged-out {
 	border: groove red 10px;
 	width: 500px;
@@ -721,6 +673,19 @@ table td:hover {
 #login-text {
 	background-color: red;
 }
+.psw-content {
+	position: relative;
+}
+.psw-content span {
+	position: absolute;
+	right: 0;
+	top: 15%;
+	font-size: 20px;
+	cursor: pointer;
+}
+.psw-content span:hover {
+	opacity: 0.7;
+}
 .logged-in {
 	border: groove red 10px;
 	color: white;
@@ -759,6 +724,7 @@ table td:hover {
 }
 
 /*Mobile*/
+
 .mobile {
 	border: groove red 10px;
 	color: white;

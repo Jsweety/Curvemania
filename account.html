@@ -10,14 +10,14 @@
 		<script type="text/javascript" src="account.js"></script>
 	</head>
 	<body ondragstart="return false;" ondrop="return false;">
-		<div class="mobile"><b>Mobile / Device with touch properties:</b><br><br>Game cannot be played without keys, try it on a laptop or desktop</div>
+		<div class="mobile"><b>Mobile / Device with touch properties:</b><br><br>Curvemania cannot be played without keys, try it on a laptop or desktop</div>
 		<div class="navbar">
 			<a href="index.html" class="title">🐍</a>
 			<a href="play.html">▶️</a>
 			<a href="podium.html">🏆</a>
 			<a href="shop.html">🛒</a>
 			<a href="customize.html">🎨</a>
-			<a href="settings.html">⚙️</a>
+			<a href="Achievements.html">🏅</a>
 			<a href="account.html">🧑</a>
 		</div>
 		<div class="head">
@@ -31,18 +31,27 @@
 					<label for="username"><b>Username</b></label>
 				    <input type="text" placeholder="Enter Username" name="username" id="username" required>
 				    <label for="psw"><b>Password</b></label>
-				    <input type="password" placeholder="Enter Password" name="psw" id="psw" required>
+				    <div class="psw-content">
+				    	<input type="password" placeholder="Enter Password" name="psw" id="psw" required>
+				    	<span onclick="showPsw('psw')">👀</span>
+				    </div>
 				    <button type="submit" class="login-btn">Login</button>
 				</form>
 				<form id="register">
 					<label for="username"><b>Username</b></label>
-				    <input type="text" placeholder="Enter Username" name="username" id="username" required>
+				    <input onchange="this.setCustomValidity('')" type="text" placeholder="Enter Username" name="username" id="username" pattern="[a-zA-Z0-9_]+" oninvalid="this.setCustomValidity('Please enter a valid username (letters, numbers and underscore)')" required>
 					<label for="email"><b>Email</b></label>
-				    <input type="text" placeholder="Enter Email" name="email" id="email" required>
+				    <input onchange="this.setCustomValidity('')" type="email" placeholder="Enter Email" name="email" id="email" oninvalid="this.setCustomValidity('Please enter a valid email address')" required>
 				    <label for="password"><b>Password</b></label>
-				    <input type="password" placeholder="Enter Password" name="password" id="password" required>
+				    <div class="psw-content">
+				    	<input onchange="this.setCustomValidity('')" type="password" placeholder="Enter Password" name="password" id="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" oninvalid="this.setCustomValidity('Please enter a valid password (at least 8 characters, 1 lowercase, 1 uppercase, 1 number')" oninput="checkPsw()" required>
+				    	<span onclick="showPsw('password')">👀</span>
+				    </div>
 				    <label for="password-repeat"><b>Repeat Password</b></label>
-				    <input type="password" placeholder="Repeat Password" name="password-repeat" id="password-repeat" required>
+				    <div class="psw-content">
+				    	<input onchange="this.setCustomValidity('')" type="password" placeholder="Repeat Password" name="password-repeat" id="password-repeat" oninput="checkPsw()" required>
+				    	<span onclick="showPsw('password-repeat')">👀</span>
+				    </div>
 				    <button type="submit" class="register-btn">Register</button>
 				</form>
 			</div>
@@ -59,8 +68,6 @@
 				<button>Log out</button>
 			</div>
 			<div class="controls">
-				<img src="images/audio.png" id="audio" onclick="playAudio()" title="audio">
-				<img src="images/music.png" id="music" onclick="playMusic()" title="music">
 				<img src="images/full.png" id="full" onclick="fullScreen()" title="fullscreen">
 			</div>
 		</div>

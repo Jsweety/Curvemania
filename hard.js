@@ -1,9 +1,10 @@
 var canvas,ctx;
+var width,height;
 var left,right;
 var player = {x:0,y:0,size:8};
 var angle = 0;
 var rx = 0,ry = 0;
-var trail = [];
+var trail = [], trailLength, trailSplit, iStart;
 var start = true,dead = false,lvlCollision = false,greenCollision = false;
 var fps = 100,fpsInterval,startTime,now,then,elapsed;
 var lvl = 0,lvlCompleted = false,modeCompleted = false;
@@ -100,6 +101,7 @@ function newPosition() {
     player.y += ry;
 }
 function drawTrail() {
+	trailLength = trail.indexOf(-1) != -1 ? (trail.indexOf(-1) < 116 ? trail.indexOf(-1) : 116) : 116;
     trail.unshift(player.y);
     trail.unshift(player.x);
     ctx.save();
@@ -111,7 +113,7 @@ function drawTrail() {
     ctx.setLineDash([(120/(splitNumber+1))-gap[playerCookie[1]]*((splitNumber)/(splitNumber+1)),gap[playerCookie[1]]]);
     ctx.beginPath();
     ctx.moveTo(trail[0],trail[1]);
-    for (var i=2;i<116;i+=2) {
+    for (var i=2;i<trailLength;i+=2) {
         ctx.lineTo(trail[i],trail[i+1]);
     }
     ctx.stroke();
@@ -119,14 +121,16 @@ function drawTrail() {
 }
 function drawPbTrail() {
 	if(trails[lvl-1] == undefined || !pbTrail) return;
-	var iStart = trails[lvl-1].length - trail.length;
+	iStart = trails[lvl-1].length - trail.length;
+	trailSplit = trails[lvl-1].slice(iStart,trails[lvl-1].length);
+	trailLength = trailSplit.indexOf(-1) != -1 ? (trailSplit.indexOf(-1) < 118 ? trailSplit.indexOf(-1) : 118) : 118;
     ctx.save();
     ctx.lineWidth = player.size;
     ctx.lineCap = "square";
     ctx.strokeStyle = "rgba(250,0,0,0.5)";
     ctx.beginPath();
     ctx.moveTo(trails[lvl-1][iStart],trails[lvl-1][iStart+1]);
-    for (var i=iStart+2;i<iStart+118;i+=2) {
+    for (var i=iStart+2;i<iStart+trailLength;i+=2) {
         ctx.lineTo(trails[lvl-1][i],trails[lvl-1][i+1]);
     }
     ctx.stroke();

@@ -1,9 +1,7 @@
 var canvas,ctx;
 var width,height;
 var left,right;
-var player = {
-    x:0,y:0,size:8
-};
+var player = {x:0,y:0,size:8};
 var angle = 0;
 var rx = 0,ry = 0;
 var trail = [];
@@ -89,7 +87,7 @@ function drawTrail() {
     ctx.setLineDash([(120/(splitNumber+1))-gap[playerCookie[1]]*((splitNumber)/(splitNumber+1)),gap[playerCookie[1]]]);
     ctx.beginPath();
     ctx.moveTo(trail[0],trail[1]);
-    for (var i=2;i<122;i+=2) {
+    for (var i=2;i<128;i+=2) {
         ctx.lineTo(trail[i],trail[i+1]);
     }
     ctx.stroke();

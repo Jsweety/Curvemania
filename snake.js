@@ -1,12 +1,10 @@
 var canvas,ctx;
 var width,height;
 var left,right;
-var player = {
-    x:0,y:0,size:8
-};
+var player = {x:0,y:0,size:8};
 var angle = 0;
 var rx = 0,ry = 0;
-var trail = [];
+var trail = [], trailLength, trailSplit, iStart;
 var start = true,dead = false;
 var fps = 100,fpsInterval,startTime,now,then,elapsed;
 var cookies,cookie,playerCookie,patternsCookie,extrasCookie,colorsCookie,splitNumber;
